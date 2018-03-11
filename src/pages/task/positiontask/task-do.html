@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>操作{{positionName}}岗位自动任务</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="handleSubmit()">
+        提交
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form *ngIf="form" [formGroup]="form">
+  <ion-list no-lines>
+    <ion-item bb>
+      <ion-label>选择岗位</ion-label>
+      <ion-input readonly text-right (click)="handleSelectPost()" value="{{ positionName }}"></ion-input>
+    </ion-item>
+    <ion-item bb>
+      <ion-label>任务名称</ion-label>
+      <ion-input text-right placeholder="输入任务名称" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item bb>
+      <ion-label>周期</ion-label>
+      <ion-select placeholder="月，周，天" formControlName="period_type">
+        <ion-option value="0">分钟</ion-option>
+        <ion-option value="1">小时</ion-option>
+        <ion-option value="2">天</ion-option>
+      </ion-select>
+      <ion-input text-right placeholder="周期数值" formControlName="period_value"></ion-input>
+    </ion-item>
+    <ion-item bb>
+      <ion-label>处罚金额</ion-label>
+      <ion-input text-right placeholder="￥" formControlName="amount"></ion-input>
+    </ion-item>
+    <div class="describe">
+      <p>任务描述</p>
+      <ion-textarea placeholder="添加任务描述" formControlName="desc"></ion-textarea>
+    </div>
+  </ion-list>
+  <ion-grid>
+    <ion-row *ngFor="let item of images">
+      <ion-col col-3 *ngFor="let image of item.values">
+        <ion-thumbnail>
+          <img src="{{image}}">
+        </ion-thumbnail>
+      </ion-col>
+      <ion-icon name="md-close-circle"></ion-icon>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col col-3>
+        <img src="../../assets/imgs/add.jpg" alt="添加" (click)="selectImages()">
+      </ion-col>
+      <ion-col col-3>
+        <img src="../../assets/imgs/venkman.jpg" alt="图片">
+        <ion-icon name="md-close-circle"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </form>
+</ion-content>

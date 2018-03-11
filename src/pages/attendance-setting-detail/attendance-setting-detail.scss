@@ -1,0 +1,14 @@
+page-attendance-setting-detail {
+    ion-content {
+        ion-row {
+            ion-input {
+                padding: 0 5px;
+                border: 1px solid #dddddd;
+            }
+            .text-input-ios , .text-input-md {
+                margin: 5px 0px;
+                width:100%;
+            }
+        }
+    }
+}

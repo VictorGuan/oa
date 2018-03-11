@@ -1,0 +1,100 @@
+<!--
+  Generated template for the PostShiftSettingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button icon-only color="royal" (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{routeName}}&nbsp;班次设定</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only color="royal" (click)="handleSubmit()">
+        提交
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>行业>部门>岗位><em>{{routeMonth}}月</em></h2>
+  <ion-item no-lines tb>
+    <ion-label>每周休息天数设定</ion-label>
+    <ion-select multiple="true" [(ngModel)] ="break">
+      <ion-option value="1">1</ion-option>
+      <ion-option value="2">2</ion-option>
+      <ion-option value="3">3</ion-option>
+      <ion-option value="4">4</ion-option>
+    </ion-select>
+  </ion-item>
+  <p>岗位班次</p>
+  <div *ngIf ="isEdit">
+  <ion-row *ngFor ="let item of typesModel">
+    <ion-col col-4 *ngIf ="item.type == 0">
+      <ion-item no-lines >
+          <ion-label>早班</ion-label>
+          <ion-checkbox color="primary" checked ="true" (ionChange)="changeType('morning',$event)"></ion-checkbox>
+      </ion-item>
+    </ion-col>
+   <ion-col col-4 *ngIf ="item.type == 1">
+        <ion-item no-lines >
+            <ion-label>中班</ion-label>
+            <ion-checkbox color="primary"  checked ="true" (ionChange)="changeType('afternoon',$event)"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+    <ion-col col-4 *ngIf ="item.type == 2">
+        <ion-item no-lines>
+            <ion-label>晚班</ion-label>
+            <ion-checkbox color="primary"  checked ="true" (ionChange)="changeType('afternoon',$event)"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+    <ion-col  col-4>
+        <ion-item no-lines>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="item.from" ></ion-datetime>
+        </ion-item>
+    </ion-col>
+    <ion-col  col-4>
+        <ion-item no-lines>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="item.to"></ion-datetime>
+        </ion-item>
+    </ion-col>
+  </ion-row>
+  </div>
+  <div *ngIf ="isAdd">
+      <ion-row *ngFor ="let item of typesModel">
+        <ion-col col-4 *ngIf ="item.type == 0">
+          <ion-item no-lines >
+              <ion-label>早班</ion-label>
+              <ion-checkbox color="primary" checked ="true" (ionChange)="changeType('morning',$event)"></ion-checkbox>
+          </ion-item>
+        </ion-col>
+       <ion-col col-4 *ngIf ="item.type == 1">
+            <ion-item no-lines >
+                <ion-label>中班</ion-label>
+                <ion-checkbox color="primary"  checked ="true" (ionChange)="changeType('afternoon',$event)"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        <ion-col col-4 *ngIf ="item.type == 2">
+            <ion-item no-lines>
+                <ion-label>晚班</ion-label>
+                <ion-checkbox color="primary"  checked ="true" (ionChange)="changeType('afternoon',$event)"></ion-checkbox>
+            </ion-item>
+          </ion-col>
+        <ion-col  col-4>
+            <ion-item no-lines>
+                <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="item.from" ></ion-datetime>
+            </ion-item>
+        </ion-col>
+        <ion-col  col-4>
+            <ion-item no-lines>
+                <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="item.to"></ion-datetime>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+      </div>
+</ion-content>

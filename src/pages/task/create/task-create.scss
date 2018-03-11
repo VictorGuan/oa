@@ -1,0 +1,47 @@
+page-task-create {
+    .content-ios , .content-md {
+        background: #eeeeee;
+        .list-ios , list-md {
+            margin: 1px 0px;
+        }
+        ion-item ion-icon[item-end] {
+            color: #999999;
+            font-weight: normal;
+            font-size: 2rem;
+            line-height: 2.2rem;
+            min-height: 2.2rem;
+            margin: 0px !important;
+        }
+        ion-item[bb] {
+            border-bottom: 1px solid #eeeeee;
+        }
+        
+        .text-input-md , .text-input-ios {
+            padding:16px 16px;
+            background: #ffffff;
+            margin:0px;
+            width: 100%;
+        }
+        textarea.text-input {
+            height: 120px;
+        }
+        ion-grid {
+            background: #ffffff;
+            ion-col {
+                ion-thumbnail {
+                    width: 60px;
+                    height: 60px;
+                    margin: 0 auto;
+                }
+                ion-icon {
+                    position: absolute;
+                    right: 0px;
+                    top: 0px;
+                    color:red;
+                }
+            }
+            
+        }
+    }
+}
+    

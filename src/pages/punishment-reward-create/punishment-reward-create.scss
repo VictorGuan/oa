@@ -1,0 +1,36 @@
+
+    .col {
+        padding-left:0px;
+    }
+    .col:last-child {
+        padding-right:7px;
+    }
+    .select-ios {
+        padding:3px 8px 3px 5px;
+    }
+    ion-select {
+        max-width:100%;
+        border: 1px solid #dddddd;
+    }
+    .item-ios {
+        padding-left:0px;
+        min-height:2.2rem;
+        margin:8px 0px;
+    }
+    .label-ios {
+        margin:0px;
+        min-width:60px;
+    }
+    .text-input-ios {
+        margin:4px 4px 4px 0px;
+    }
+    ion-input {
+        border:1px solid #dddddd;
+    }
+    ion-label {
+        font-size:1.4rem;
+    }
+    .label-ios + ion-input .text-input {
+        margin-left:5px;
+    }
+

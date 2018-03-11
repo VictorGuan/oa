@@ -1,0 +1,28 @@
+
+page-attendance-check-item-detail {
+    ion-content {
+        ion-row {
+            img {
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+            }
+            .select-ios , .select-md {
+                padding: 2px 8px 2px 5px;
+                border: 1px solid #dddddd;
+            }
+            .text-input-ios , .text-input-md {
+                margin: 0px;
+                border: 1px solid #dddddd;
+                min-height: 80px;
+                padding: 5px;
+            }
+        }
+        h2 {
+            font-size: 1.4rem;
+            color: #999999;
+            width: 70%;
+            margin: 20px auto ;
+        }
+    }
+}

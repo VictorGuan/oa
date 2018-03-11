@@ -1,0 +1,74 @@
+page-store-detail {
+
+}
+page-store-detail .mt-10 {
+    margin-top: 10px;
+}
+page-store-detail .tag {
+    border-radius: 20px;
+    padding: 3px 5px;
+    color: #fff;
+}
+page-store-detail .segment-ios .segment-button {
+    height: 2.4rem;
+    line-height: 2.4rem;
+}
+page-store-detail .switch-page {
+    padding-left:16px;
+    padding-right: 16px;
+    padding-bottom:16px;
+}
+
+page-store-detail .switch-page .time-node {
+    position: relative;
+    min-height: 100px;
+}
+page-store-detail .switch-page .time-node .time-line {
+    position: absolute;
+    width: 2px;
+    background: #eeeeee;
+    top: 0px;
+    bottom: 0px;
+}
+page-store-detail .switch-page .time-node ion-icon {
+    color: #dddddd;
+    position: absolute;
+    left: -6px;
+    font-size: 20px;
+    background: #ffffff;
+}
+page-store-detail .switch-page .time-node .time-content {
+    left: 25px;
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+}
+page-store-detail .switch-page .time-node .time-content p {
+    margin: 0px;
+}
+
+page-store-detail .switch-page .time-node .time-content span {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+// 门店的5种状态 签约，开业，停业，恢复营业，关闭门店
+page-store-detail ion-note.business {
+    background: #F9CD3D;
+}
+
+page-store-detail ion-note.stop {
+    background: #D63B45;
+}
+
+page-store-detail ion-note.close {
+    background: #AD0112 ;
+}
+page-store-detail ion-note.recover {
+    background:#6ACEE8;
+}
+
+page-store-detail ion-note.sign {
+    background:  #62F85A;
+}

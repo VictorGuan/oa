@@ -1,0 +1,71 @@
+<!--
+  Generated template for the EmployeeSchedulingDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button icon-only color="royal" (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>查看排班</ion-title>
+    <ion-buttons right>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="calendar" padding-left padding-right>
+        <h2>行业>部门>岗位><em>员工</em></h2>
+        <p text-center>
+          <ion-icon float-left  name="ios-arrow-back"></ion-icon>
+          {{routeYear}}年
+          <ion-icon float-right name="ios-arrow-forward"></ion-icon>
+        </p>
+        <ion-row text-center>
+          <ion-col col-2 text-center><span class="{{isActive(1)}}">1月</span></ion-col>
+          <ion-col col-2><span class="{{isActive(2)}}">2月</span></ion-col>
+          <ion-col col-2><span class="{{isActive(3)}}">3月</span></ion-col>
+          <ion-col col-2><span class="{{isActive(4)}}">4月</span></ion-col>
+          <ion-col col-2><span class="{{isActive(5)}}">5月</span></ion-col>
+          <ion-col col-2><span class="{{isActive(6)}}">6月</span></ion-col>
+          <ion-col col-2><span class="{{isActive(7)}}">7月</span></ion-col>
+          <ion-col col-2><span class="{{isActive(8)}}">8月</span></ion-col>
+          <ion-col col-2><span class="{{isActive(9)}}">9月</span></ion-col>
+          <ion-col col-2><span class="{{isActive(10)}}">10月</span></ion-col>
+          <ion-col col-2><span class="{{isActive(11)}}">11月</span></ion-col>
+          <ion-col col-2><span class="{{isActive(12)}}">12月</span></ion-col>
+        </ion-row>
+      </div>
+      <ion-grid>
+        <ion-row week>
+          <ion-col>日</ion-col>
+          <ion-col>一</ion-col>
+          <ion-col>二</ion-col>
+          <ion-col>三</ion-col>
+          <ion-col>四</ion-col>
+          <ion-col>五</ion-col>
+          <ion-col>六</ion-col>
+        </ion-row>
+        <ion-row date *ngFor="let weeks of days">
+            <ion-col col-week *ngFor="let day of weeks" (click)="handleOnDaySelect(day)" [ngClass]=" dayCurrent && dayCurrent.no == day.no ? 'on':''">
+              <span>{{day.no}}</span>
+              <span [ngStyle]="{'color': colors[day.flag - 1]}">{{day.text}}</span>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-row shift-time padding-left>
+        <ion-col>
+          <p><span>早班</span><span>09:00</span></p>
+          <p><span>中班</span><span>12:00</span></p>
+          <p><span>晚班</span><span>20:00</span></p>
+        </ion-col>
+        <ion-col col-3 align-self-center>
+            <p><em>8</em>天</p>
+        </ion-col>
+      </ion-row>
+</ion-content>

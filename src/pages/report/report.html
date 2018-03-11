@@ -1,0 +1,143 @@
+<!--
+  Generated template for the ReportPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-menu [content]="content" side="right">
+  <ion-content padding-top>
+    <ion-row align-items-center padding-left padding-right>
+      <ion-col col-3>起始时间</ion-col>
+      <ion-col>
+          <ion-datetime displayFormat="YY MMM DD" pickerFormat="YY MMM DD" placeholder="日期"></ion-datetime>
+      </ion-col>
+      <ion-col>
+          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" placeholder="时刻"></ion-datetime>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center  padding-left padding-right>
+        <ion-col col-3>结束时间</ion-col>
+        <ion-col>
+            <ion-datetime displayFormat="YY MMM DD" pickerFormat="YY MMM DD" placeholder="日期"></ion-datetime>
+        </ion-col>
+        <ion-col>
+            <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" placeholder="时刻"></ion-datetime>
+        </ion-col>
+      </ion-row>
+     <h2>状态筛选</h2> 
+     <ion-buttons padding-left padding-right>
+        <button ion-button button small outline [ngClass]="status == 1 ? 'selected':''" (click)="status = 1">刚提交</button>
+        <button ion-button button small outline [ngClass]="status == 2 ? 'selected':''" (click)="status = 2">逾期</button>
+        <button ion-button button small outline [ngClass]="status == 3 ? 'selected':''" (click)="status = 3">通过</button>
+        <button ion-button button small outline [ngClass]="status == 4 ? 'selected':''" (click)="status = 4">不通过</button>
+        <button ion-button button small outline [ngClass]="status == 5 ? 'selected':''" (click)="status = 5">全部</button>
+     </ion-buttons>
+     <h2>对象筛选</h2> 
+     <ion-item no-lines bb>
+       <ion-label>选门店</ion-label>
+       <ion-input readonly placeholder="选择门店" text-right></ion-input>
+       <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+     </ion-item>
+     <ion-item no-lines bb>
+       <ion-label>选部门</ion-label>
+       <ion-input readonly placeholder="选择门店" text-right></ion-input>
+       <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+     </ion-item>
+     <ion-item no-lines>
+       <ion-label>选岗位</ion-label>
+       <ion-input readonly placeholder="选择岗位" text-right></ion-input>
+       <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+     </ion-item>
+     <h2>报表筛选</h2> 
+     <ion-buttons padding-left padding-right>
+        <button ion-button button small outline [ngClass]="report == 1 ? 'selected':''" (click)="report = 1">日报</button>
+        <button ion-button button small outline [ngClass]="report == 2 ? 'selected':''" (click)="report = 2">月报</button>
+        <button ion-button button small outline [ngClass]="report == 3 ? 'selected':''" (click)="report = 3">日营业</button>
+        <button ion-button button small outline [ngClass]="report == 4 ? 'selected':''" (click)="report = 4">月营业</button>
+        <button ion-button button small outline [ngClass]="report == 5 ? 'selected':''" (click)="report = 5">全部</button>
+     </ion-buttons>
+      <ion-footer>
+          <ion-row>
+            <ion-col>
+              <button ion-button full color="light">重置</button>
+            </ion-col>
+            <ion-col>
+              <button ion-button full>确定</button>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+  </ion-content>
+    
+</ion-menu>
+
+<ion-content #content>
+    <ion-header>
+        <ion-toolbar>
+          <ion-segment [(ngModel)]="type" (click)="changeType($event)">
+            <ion-segment-button value="1">
+              我的
+            </ion-segment-button>
+            <ion-segment-button value="2">
+              我核审
+            </ion-segment-button>
+            <ion-segment-button value="3">
+                抄送我
+            </ion-segment-button>
+          </ion-segment>
+          <ion-buttons right>
+            <button ion-button icon-only (click)="menu.toggle()">
+              <ion-icon name="ios-funnel"></ion-icon>
+            </button>
+            <button ion-button icon-only>
+                <ion-icon name="md-add"></ion-icon>
+              </button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+    
+    <ion-content>
+      <div [ngSwitch]="type">
+      <ion-list no-lines *ngSwitchCase="'1'">
+        <ion-item *ngFor ="let item1 of userReport">
+          <div class="top">
+            <span class="just-submit" (click)="changeStatus(item1)">{{statusMapping(item1)}}</span>
+            <h2>日报标题</h2>
+            <span float-right>{{item1.updated_at}}</span>
+          </div>
+          <div class="bottom">
+            <p>{{item1.from_staff}}</p>
+            <span float-right>日报</span>
+          </div>
+        </ion-item>
+       </ion-list>
+       <ion-list no-lines *ngSwitchCase="'2'">
+        <ion-item *ngFor ="let item2 of userReport">
+            <div class="top">
+              <span class="overdue" (click)="changeStatus(item2)">{{statusMapping(item2)}}</span>
+              <h2>日报标题</h2>
+              <span float-right>{{item2.updated_at}}</span>
+            </div>
+            <div class="bottom">
+              <p>{{item2.from_staff}}</p>
+              <span float-right>日报</span>
+            </div>
+          </ion-item>
+        </ion-list>
+        <ion-list no-lines *ngSwitchCase="'3'">
+          <ion-item *ngFor ="let item3 of userReport">
+              <div class="top">
+                <span class="pass" (click)="changeStatus(item3)">{{statusMapping(item3)}}</span>
+                <h2>日报标题</h2>
+                <span float-right>{{item3.updated_at}}</span>
+              </div>
+              <div class="bottom">
+                <p>{{item3.from_staff}}</p>
+                <span float-right>日报</span>
+              </div>
+            </ion-item>
+      </ion-list>
+      </div>
+    </ion-content>
+    
+</ion-content>
+

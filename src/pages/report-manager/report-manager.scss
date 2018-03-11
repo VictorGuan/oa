@@ -1,0 +1,21 @@
+
+page-report-manager  {
+    ion-grid {
+        ion-col {
+            padding: 10px 0px !important;
+            img {
+                width: 45px;
+                height: 45px;
+                display: block;
+                margin: 0 auto ;
+            }
+            p {
+                margin-top: 10px;
+            }
+        }
+        ion-col:active {
+            background: #eeeeee;
+        }
+    }
+
+}

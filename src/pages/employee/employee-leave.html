@@ -1,0 +1,62 @@
+
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal" (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>离职确认</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="handleConfirm()">
+        提交
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item no-lines>
+    <ion-label>工号</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-item no-lines>
+    <ion-label>姓名</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <h4>物品未归还记录</h4>
+  <ion-list>
+    <ion-item no-lines>
+      <h2>物品名称</h2>
+      <ion-note item-end>10￥</ion-note>
+    </ion-item>
+    <ion-item no-lines>
+      <h2>物品名称</h2>
+      <ion-note item-end>10￥</ion-note>
+    </ion-item>
+  </ion-list>
+  <h4 text-right>总计:1000￥</h4>
+  
+  <h4 margin-top>财务结算</h4>
+  <ion-list>
+    <ion-item no-lines>
+      <h2>工资</h2>
+      <ion-note item-end>10￥</ion-note>
+    </ion-item>
+    <ion-item no-lines>
+      <h2>押金</h2>
+      <ion-note item-end>10￥</ion-note>
+    </ion-item>
+  </ion-list>
+  <h4 text-right>总计:1000￥</h4>
+  <ion-item no-lines>
+      <ion-label>实际结算金额</ion-label>
+      <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-item no-lines>
+      <ion-label>宿舍搬离时间</ion-label>
+      <ion-datetime displayFormat="YYYY MM DD" placeholder="选择日期"></ion-datetime>
+  </ion-item>
+</ion-content>

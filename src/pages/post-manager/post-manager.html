@@ -1,0 +1,30 @@
+
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons start>
+        <button ion-button icon-only color="royal" (click)="handleGoBack($event)">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>岗位列表</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only color="royal" (click)="handleAdd($event)">
+          <ion-icon name="md-add"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor = "let item of positions" (click)="handleShowDetail($event,item)">
+          <ion-avatar item-start>
+            <img src="../../assets/imgs/venkman.jpg">
+          </ion-avatar>
+          <h2>{{item.name}}</h2>
+          <ion-note item-end>
+              {{item.staffCount}} <ion-icon margin-left name="ios-arrow-forward"></ion-icon>
+          </ion-note>
+        </ion-item>
+      </ion-list>
+</ion-content>

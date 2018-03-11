@@ -1,0 +1,142 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons left>
+            <button ion-button icon-only (click)="handleGoback()">
+                <ion-icon name="ios-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-segment [(ngModel)]="type">
+            <ion-segment-button value="one">
+                详情
+            </ion-segment-button>
+            <ion-segment-button value="two">
+                操作
+            </ion-segment-button>
+        </ion-segment>
+        <ion-buttons right>
+            <button ion-button icon-only (click)="handleMoreMenu()">
+                <ion-icon name="more"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div [ngSwitch]="type">
+        <div *ngSwitchCase="'one'">
+            <div class="title">
+                <h2>{{ task.name}}</h2>
+                <p>  {{ getDesc(task.describles)}}</p>
+            </div>
+            <div class="item">
+                <ion-icon name="ios-contact-outline"></ion-icon>
+                <span class="tag" main>{{ getInvolves(task.involves,1)}}</span>
+            </div>
+            <div class="item">
+                <ion-icon mult name="ios-contacts-outline"></ion-icon>
+                <span class="tag" main>{{ getInvolves(task.involves,0)}}</span>
+            </div>
+            <div class="item">
+                <ion-icon name="md-funnel"></ion-icon>
+                <ion-select [(ngModel)]="task.urgent_level">
+                    <ion-option value="0">普通</ion-option>
+                    <ion-option value="1">紧急</ion-option>
+                    <ion-option value="2">非常紧急</ion-option>
+                </ion-select>
+            </div>
+            <div class="item">
+                <ion-icon name="ios-time-outline"></ion-icon>
+                <span>创建于 {{task.created_at | local | date:'MM-dd HH:mm'}}</span>
+            </div>
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-3>
+                        <img src="../../assets/imgs/venkman.jpg" alt="缩略图">
+                    </ion-col>
+                    <ion-col col-3>
+                        <img src="../../assets/imgs/venkman.jpg" alt="缩略图">
+                    </ion-col>
+                    <ion-col col-3>
+                        <img src="../../assets/imgs/venkman.jpg" alt="缩略图">
+                    </ion-col>
+                    <ion-col col-3>
+                        <img src="../../assets/imgs/venkman.jpg" alt="缩略图">
+                    </ion-col>
+                    <ion-col col-3>
+                        <img src="../../assets/imgs/venkman.jpg" alt="缩略图">
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <div class="chat-list" *ngSwitchCase="'two'">
+            <div class="input-box">
+                <ion-row>
+                    <ion-col col-1 text-center (click)="voiceMode = !voiceMode">
+                        <ion-icon [ngClass]="voiceMode ? 'on' : ''" name="md-mic"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+                        <ion-input *ngIf="voiceMode" disabled value="+按住说话"></ion-input>
+                        <ion-input *ngIf="!voiceMode"></ion-input>
+                    </ion-col>
+                    <ion-col col-2>
+                        <ion-icon text-center name="md-happy" [ngClass]="emojiMode ? 'on' : ''" (click)="emojiMode = !emojiMode ; mulMode = false">
+                        </ion-icon>
+                        <ion-icon text-center float-right name="md-add-circle" [ngClass]="mulMode ? 'on' : ''" (click)="mulMode = !mulMode ; emojiMode = false">
+                        </ion-icon>
+                    </ion-col>
+                </ion-row>
+                <ion-row mul *ngIf="mulMode">
+                    <ion-col col-3>
+                        <img src="../../assets/imgs/venkman.jpg" alt="插入图片">
+                    </ion-col>
+                    <ion-col col-3>
+                        <img src="../../assets/imgs/venkman.jpg" alt="插入视频">
+                    </ion-col>
+                    <ion-col col-3>
+                        <img src="../../assets/imgs/venkman.jpg" alt="插入图片">
+                    </ion-col>
+                    <ion-col col-3>
+                        <img src="../../assets/imgs/venkman.jpg" alt="插入图片">
+                    </ion-col>
+                </ion-row>
+                <ion-row emoji *ngIf="emojiMode">
+                    如果有表情，此处添加表情
+                </ion-row>
+            </div>
+            <ion-list no-lines padding-left padding-right>
+                <div class="chat-item" *ngFor="let log of task.logs">
+                    <div class="left">
+                        <div class="line"></div>
+                        <img src="../../assets/imgs/venkman.jpg" alt="头像">
+                    </div>
+                    <div class="right">
+                        <p text-center>
+                            <span float-left>{{ log.staffName[0].name }}</span>
+                            <span>{{ log.created_at | local | date:'HH:mm' }}</span>
+                        </p>
+                        <div class="chat-content">
+                            <ion-icon arrow name="md-arrow-dropleft"></ion-icon>
+                            <div class="msg">
+                                {{ getDesc(log.describles)}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <div class="left">
+                        <div class="line"></div>
+                        <img src="../../assets/imgs/venkman.jpg" alt="头像">
+                    </div>
+                    <div class="right">
+                        <p text-center>
+                            <span float-left>小雪</span>
+                            <span>下午15:40</span>
+                        </p>
+                        <div class="chat-content">
+                            <img src="../../assets/imgs/lf.jpg" alt="图片">
+                        </div>
+                    </div>
+                </div>
+            </ion-list>
+        </div>
+    </div>
+</ion-content>

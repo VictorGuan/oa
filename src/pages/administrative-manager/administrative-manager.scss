@@ -1,0 +1,12 @@
+page-administrative-manager {
+    .list-ios .item-block .item-inner {
+        border-bottom: none !important;
+    }
+    ion-item-sliding ion-item {
+        border-bottom: 1px solid #dddddd !important;
+    }
+    ion-item-sliding ion-item ion-grid {
+        font-size: 1.4rem;
+    }
+
+}

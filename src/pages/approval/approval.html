@@ -1,0 +1,122 @@
+<ion-menu [content]="content" side="right">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>搜索审批</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+
+    <ion-item no-lines>
+      <ion-label>按时间</ion-label>
+      <ion-datetime [(ngModel)]="beginDate" displayFormat="YYYY-MM-DD" placeholder="选择时间"></ion-datetime>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>到</ion-label>
+      <ion-datetime [(ngModel)]="endDate" displayFormat="YYYY-MM-DD" placeholder="选择时间"></ion-datetime>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>发起人</ion-label>
+      <ion-input type="text" [(ngModel)]="from_user"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>审批人</ion-label>
+      <ion-input type="text" [(ngModel)]="approval_user"></ion-input>
+    </ion-item>
+
+    <ion-row margin-top>
+      <ion-col col-6 text-center>
+        <button [ngClass]="isPass?'selected':''" ion-button outline small (click)="isPass = !isPass">通过的</button>
+      </ion-col>
+      <ion-col col-6 text-center>
+        <button [ngClass]="isReject?'selected':''" ion-button outline small (click)="isReject = !isReject">驳回的</button>
+      </ion-col>
+      <ion-col col-6 text-center>
+        <button [ngClass]="isApply?'selected':''" ion-button outline small (click)="isApply = !isApply">申请中</button>
+      </ion-col>
+      <ion-col col-6 text-center>
+        <button [ngClass]="isEnd?'selected':''" ion-button outline small (click)="isEnd = !isEnd">结束的</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-footer>
+      <ion-row>
+        <ion-col>
+          <button ion-button full color="light" (click)="handleResetFilter()">重置</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button full (click)="handleConfirmFilter()">确定</button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-content>
+</ion-menu>
+
+<ion-content #content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons left>
+        <button ion-button icon-only (click)="handleGoback()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-segment [(ngModel)]="segmentValue" (ngModelChange)='changed()'>
+        <ion-segment-button value="one">
+          我申请
+        </ion-segment-button>
+        <ion-segment-button value="tow">
+          待批
+        </ion-segment-button>
+        <ion-segment-button value="three">
+          抄送我
+        </ion-segment-button>
+      </ion-segment>
+      <ion-buttons right>
+        <button ion-button icon-only (click)="handleSearch()">
+          <ion-icon name="ios-search"></ion-icon>
+        </button>
+        <!-- <button ion-button icon-only>
+          <ion-icon name="md-add"></ion-icon>
+        </button> -->
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-card *ngFor="let item of items">
+      <ion-card-header>
+        <h2 (click)="goDetail(item.id)" >
+          <span>{{ item.applicationType[0].name }}</span>
+          {{ item.from_staff }}
+          <ion-note float-right> {{ item.created_at | local | date:'MM-dd HH:mm' }}</ion-note>
+        </h2>
+        <flowstatus [status]="item.status"></flowstatus>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row *ngFor="let field of item.fields">
+          <ion-col col-4>{{ field.key }}:</ion-col>
+          <ion-col>{{ field.value }}</ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <h2>
+          <span>#印章使用申请#</span>
+          卓邦里
+          <ion-note float-right>11-20 16:34</ion-note>
+        </h2>
+        <flowstatus [status]="1"></flowstatus>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-4>用印部门:</ion-col>
+          <ion-col>销售部</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>经办人:</ion-col>
+          <ion-col>陈涵</ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-content>

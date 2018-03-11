@@ -1,0 +1,61 @@
+<!--
+  Generated template for the SelectPositionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-toolbar color="primary">
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">取消</span>
+          <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>选择岗位</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="selPosition()">
+          确定
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>行业</ion-col>
+      <ion-col col-9>
+        <ion-select [(ngModel)]="businessId" placeholder="选择行业" (ionChange)="change(1)" okText="确定" cancelText="取消" interface="popover">
+          <ion-option *ngFor="let item of arrBusiness" value="{{item.id}}">{{item.name}} </ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3>门店</ion-col>
+      <ion-col col-9>
+        <ion-select [(ngModel)]="shopId" placeholder="选择门店" (ionChange)="change(2)" okText="确定" cancelText="取消" interface="popover">
+          <ion-option *ngFor="let item of arrShop" value="{{item.id}}">{{item.name}} </ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3>部门</ion-col>
+      <ion-col col-9>
+        <ion-select [(ngModel)]="deptId" placeholder="选择部门" (ionChange)="change(3)" okText="确定" cancelText="取消" interface="popover">
+          <ion-option *ngFor="let item of arrDept" value="{{item.id}}">{{item.name}} </ion-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list radio-group [(ngModel)]="currentPositionId">
+    <ion-item *ngFor="let item of positions">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-radio value="{{item.id}}"></ion-radio>
+    </ion-item>
+  </ion-list>
+</ion-content>

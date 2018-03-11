@@ -1,0 +1,67 @@
+<!--
+  Generated template for the PositionDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal" (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>查看岗位</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list no-margin>
+      <ion-item-sliding #slidingItem1>
+          <ion-item>
+              <h2>岗位名称</h2>
+              <ion-note item-end>{{seletedPosition.name}}</ion-note>
+          </ion-item>
+          <ion-item-options side="right">
+              <button ion-button color="secondary" (click)="handleEditPosition($event)">
+                  修改
+              </button>
+          </ion-item-options>
+      </ion-item-sliding>
+      <ion-item-sliding #slidingItem2>
+          <ion-item>
+              <h2>行政等级</h2>
+              <ion-note item-end>{{seletedPosition.executiveLevel_id}}</ion-note>
+          </ion-item>
+          <ion-item-options side="right">
+              <button ion-button color="secondary" (click)="handleEditLevel(slidingItem2)">
+                  修改
+              </button>
+          </ion-item-options>
+      </ion-item-sliding>
+      <ion-item>
+          <h2>共有员工</h2>
+          <ion-note item-end>{{seletedPosition.staffCount}}</ion-note>
+      </ion-item>
+  </ion-list>
+  <ion-grid padding>
+      <ion-row>
+          <ion-col col-2 (click)="handleAdd($event)">
+              <ion-avatar>
+                  <img src="../../assets/imgs/add.jpg">
+              </ion-avatar>
+          </ion-col>
+          <ion-col col-2 (click)="handleShowDelIcon()">
+              <ion-avatar>
+                  <img src="../../assets/imgs/remove.jpg">
+              </ion-avatar>
+          </ion-col>
+          <ion-col col-2 *ngFor = "let item of staffs">
+              <ion-avatar>
+                  <img [src]="item.img">
+                  <ion-icon *ngIf="isDel" name="md-close-circle" (click)="handleRemove()"></ion-icon>
+              </ion-avatar>
+              <p text-center>{{item.name}}</p>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

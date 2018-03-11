@@ -1,0 +1,31 @@
+<!--
+  Generated template for the PunchClockPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>考勤打卡</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <h2>{{currentDay}}</h2>
+    <div class="clock normal" (click)="handleNormalExplain()">
+        <p>09:05</p>
+        <p>上班</p>
+        <p>正常</p>
+    </div>
+    <div class="clock leave" (click)="handleLeaveExplain()">
+      <p>--:--</p>
+      <p>下班</p>
+      <p>未打卡</p>
+  </div>
+</ion-content>

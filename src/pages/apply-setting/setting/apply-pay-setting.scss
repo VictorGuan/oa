@@ -1,0 +1,85 @@
+page-apply-pay-setting .ion-drawer {
+    position: absolute;
+    width: 75%;
+    bottom: 52px;
+    box-shadow: 0px 0px 6px 1px #666;
+    background: #ffffff;
+    left: -76%;
+    top: 0px;
+
+    transition-delay: 0 !important;
+    transition-property: left !important ;
+    transition-duration:0.5s;
+
+    -moz-transition-delay: 0 !important;
+    -moz-transition-property: left !important;
+    -moz-transition-duration:0.5s;
+
+    -webkit-transition-delay: 0 !important;
+    -webkit-transition-property: left !important;
+    -webkit-transition-duration:0.5s;
+
+    -o-transition-delay: 0 !important;
+    -o-transition-property: left !important;
+    -o-transition-duration:0.5s;
+    
+}
+
+page-apply-pay-setting .ion-drawer.slide-in-left {
+    left:0px;
+}
+
+page-apply-pay-setting ion-grid p {
+    padding: 8px 0px;
+}
+
+page-apply-pay-setting ion-grid .ion-ios-radio-button-on {
+    color: cornflowerblue;
+}
+
+page-apply-pay-setting .ion-drawer ion-footer ion-list {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    bottom: 97px;
+}
+page-apply-pay-setting .main-content ion-footer {
+   border-top: 1px solid #ddd;
+}
+page-apply-pay-setting .ion-drawer  ion-footer ion-item {
+    margin: 0px;
+    padding: 0px;
+}
+page-apply-pay-setting .ion-drawer ion-footer ion-item:active {
+    background: #ddd;
+}
+page-apply-pay-setting .main-content .scroll-content {
+    margin-bottom:0px !important;
+}
+page-apply-pay-setting ion-menu ion-input ,
+page-apply-pay-setting .ion-drawer ion-input {
+    border:1px solid #ddd;
+}
+
+page-apply-pay-setting ion-menu ion-input  .text-input-ios ,
+page-apply-pay-setting .ion-drawer ion-input .text-input-ios {
+    margin-top:5px !important;
+    margin-bottom:5px !important;
+}
+
+page-apply-pay-setting .segment-ios .segment-button {
+    height: 2.2rem;
+    line-height:2em;
+}
+
+page-apply-pay-setting ion-list-header {
+    min-height:2.2rem;
+}
+page-apply-pay-setting ion-list-header ion-icon {
+    font-size: 1.4em;
+}
+page-apply-pay-setting ion-list-header ion-icon.ion-ios-radio-button-on {
+    color: #488aff;
+}

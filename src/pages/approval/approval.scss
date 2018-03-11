@@ -1,0 +1,38 @@
+page-approval .toolbar-ios .segment-button {
+    max-width: 80px;
+    height: 2.2rem;
+    line-height: 2rem;
+}
+
+page-approval ion-menu ion-label {
+    min-width:80px;
+    flex: none;
+    -webkit-flex:none;
+    -webkit-box-flex:none;
+}
+page-approval ion-menu ion-datetime ,
+page-approval ion-menu ion-input {
+    border:1px solid #dddddd;
+}
+page-approval ion-menu ion-input input {
+    margin-top:5px !important ;
+    margin-bottom:5px !important ;
+}
+page-approval ion-menu ion-datetime {
+    width: 100%;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+page-approval button.selected {
+    background-color: #488aff;
+    color: #ffffff;
+}
+page-approval ion-card h2 span {
+    color: #488aff;
+}
+page-approval ion-card ion-note.pass {
+    color: #39C264 ;
+}
+page-approval ion-card ion-note.reject {
+    color: #E43A24 ;
+}

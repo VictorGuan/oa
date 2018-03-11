@@ -1,0 +1,21 @@
+page-login ion-input {
+    border: 1px solid #ddd;
+}
+page-login ion-input input {
+    font-size:1.4rem;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+}
+page-login ion-item ion-label[fixed] {
+    width: 60px;
+    -webkit-box-flex: none;
+    -webkit-flex: none;
+    -ms-flex:  none;
+    flex:  none;
+    min-width: 60px;
+    max-width: 200px;
+}
+page-login form .error-message {
+    color: red;
+    padding-left: 84px;
+}

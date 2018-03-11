@@ -1,0 +1,74 @@
+page-store-manager ion-item-sliding h2 ion-note {
+    border-radius: 20px;
+    padding: 3px 5px;
+    margin-left: 5px;
+    font-size: 12px;
+}
+page-store-manager ion-item-sliding h2 ion-note.stop {
+    color: #fff;
+    background: #D63B45;
+}
+page-store-manager ion-item-sliding h2 ion-note.business {
+    color: #fff;
+    background: #F9CD3D;
+}
+
+page-store-manager ion-menu .datetime-ios {
+    padding: 5px 8px 5px 16px;
+    border: 1px solid #dddddd;
+}
+page-store-manager ion-menu .datetime-text {
+    font-size: 1.5rem;
+    min-width: 100px;
+}
+page-store-manager ion-menu ion-note.tag {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #999999;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+}
+page-store-manager ion-menu button.selected {
+    background: #488aff;
+    color: #fff;
+}
+page-store-manager .mt-20 {
+    margin-top: 20px;
+}
+page-store-manager ion-menu .searchbar-ios {
+    background: none;
+    border: 0.55px solid #dddddd;
+    border-radius: 20px;
+    min-height: 36px;
+}
+page-store-manager ion-menu .searchbar-ios .searchbar-input {
+    height: 2.4rem;
+}
+
+page-store-manager ion-menu .searchbar-ios .searchbar-search-icon {
+    left: 6px;
+    top: 8px;
+}
+page-store-manager .bar-button-ios[icon-only] ion-icon.ion-ios-funnel {
+    font-size: 1.4em;
+}
+page-store-manager  .item-ios {
+    border-bottom: 1px solid #eeeeee !important;
+}
+page-store-manager  .item-ios.item-block .item-inner {
+    border-bottom: none;
+}
+page-store-manager ion-menu .select-ios {
+    padding: 5px 7px;
+    min-width: 200px ;
+    border:1px solid #dddddd;
+}
+page-store-manager ion-menu .select-ios .select-text {
+    font-size: 1.4rem;
+}
+
+page-store-manager ion-menu .item-ios {
+    border-bottom: none !important;
+}

@@ -1,0 +1,34 @@
+<!--
+  Generated template for the ReportManagerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons left>
+        <button ion-button icon-only color="royal" (click)="handleGoback()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>工作汇报类别管理</ion-title>
+      <ion-buttons right>
+        <button ion-button icon-only color="royal" (click)="handleAdd()">
+            添加
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row >
+      <ion-col col-4 (click)="handleEdit(item)" *ngFor ="let item of report">
+        <img src="../../assets/imgs/venkman.jpg" alt="{{item.icon_name}}">
+        <p text-center>{{item.name}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+                            

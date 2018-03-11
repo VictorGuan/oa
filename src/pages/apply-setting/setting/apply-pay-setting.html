@@ -1,0 +1,229 @@
+<ion-menu id="applysettingcreateMenu" persistent="true" [content]="applypaySetting" side="right">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        添加流程
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div>
+      <ion-segment [(ngModel)]="ruleTab">
+        <ion-segment-button value="tabOne">
+          操作
+        </ion-segment-button>
+        <ion-segment-button value="tabTwo">
+          抄送
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div [ngSwitch]="ruleTab">
+      <ion-list *ngSwitchCase="'tabOne'" padding-left padding-right>
+        <button ion-button outline block small *ngFor="let level of levels" (click)="setOP(level.id,level.name)">{{level.name}} </button>
+      </ion-list>
+      <ion-list *ngSwitchCase="'tabTwo'" padding-left padding-right>
+        <button ion-button outline block small *ngFor="let level of levels" (click)="setCopy(level.id,level.name)">{{level.name}}</button>
+      </ion-list>
+    </div>
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button outline block small (click)="isUp = !isUp">选上限</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button outline block small (click)="isUp = !isUp">选下限</button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item no-lines>
+              <ion-label fixed>规则名</ion-label>
+              <ion-input type="text" [(ngModel)]="name"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4></ion-col>
+          <ion-col text-center>上限</ion-col>
+          <ion-col col-4>下限</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>操作</ion-col>
+          <ion-col text-center>{{apply_exe_level_up_limit_text}}</ion-col>
+          <ion-col col-4>{{ apply_exe_level_low_limit_text }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-4>抄送</ion-col>
+          <ion-col text-center>{{copy_exe_level_up_limit_text}}</ion-col>
+          <ion-col col-4>{{ copy_exe_level_low_limit_text }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <ion-footer>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button full color="light" (click)="handleResetFilter()">重置</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button full (click)="handleConfirmAddRule()">确定</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-footer>
+  </ion-content>
+
+</ion-menu>
+
+<ion-content #applypaySetting>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons start>
+        <button ion-button icon-only color="royal" (click)="handleGoBack(drawer)">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>{{ applyName }}流程设置</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only color="royal" (click)="handleShowFilterMenu()">
+          <ion-icon name="ios-funnel"></ion-icon>
+        </button>
+        <button ion-button icon-only color="royal" (click)="handleAddRule()">
+          <ion-icon name="md-add"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="main-content">
+    <ion-grid>
+      <ion-row text-center>
+        <ion-col col-3 *ngFor="let item of data">
+          <ion-icon [name]="item.isSelected ?'ios-radio-button-on':'ios-radio-button-off'" (click)="item.isSelected = !item.isSelected"></ion-icon>
+          <p (click)="handleItemClick(item)">{{item.name}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-footer>
+      <ion-row>
+        <ion-col col-2>
+          <button ion-button small (click)="handleOperate()">操作</button>
+        </ion-col>
+        <ion-col>
+          <ion-row>
+            <ion-col text-center>当前规则:{{name}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2>操作</ion-col>
+            <ion-col text-center>{{ apply_exe_level_up_limit_text }}</ion-col>
+            <ion-col col-2>{{ apply_exe_level_low_limit_text }}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-2>抄送</ion-col>
+            <ion-col text-center>{{copy_exe_level_up_limit_text}}</ion-col>
+            <ion-col col-2>{{ copy_exe_level_low_limit_text }}</ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button small (click)="handleSelect()">选择</button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-content>
+</ion-content>
+
+<div #drawer [class]="showFilter ? 'ion-drawer slide-in-left':'ion-drawer'">
+
+
+  <div padding>
+    <ion-segment [(ngModel)]="filterTab">
+      <ion-segment-button value="tabOne">
+        选对象
+      </ion-segment-button>
+      <ion-segment-button value="tabTwo">
+        选流程
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="filterTab" padding>
+    <ion-list *ngSwitchCase="'tabOne'">
+      <ion-item no-lines text-center>
+        <h2>正在进行查看操作</h2>
+        <p>请选择岗位或具体员工</p>
+        <button item-end ion-button small>重置</button>
+      </ion-item>
+      <ion-item no-lines>
+        <ion-label>行业</ion-label>
+        <ion-select [(ngModel)]="businessId" placeholder="行业列表" (ionChange)="change(1)" okText="确定" cancelText="取消" interface="popover">
+          <ion-option *ngFor="let item of arrBusiness" value="{{item.id}}">{{item.name}} </ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item no-lines>
+        <ion-label>门店</ion-label>
+        <ion-select [(ngModel)]="shopId" placeholder="门店列表" (ionChange)="change(2)" okText="确定" cancelText="取消" interface="popover">
+          <ion-option *ngFor="let item of arrShop" value="{{item.id}}">{{item.name}} </ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item no-lines>
+        <ion-label>部门</ion-label>
+        <ion-select [(ngModel)]="deptId" placeholder="部门列表" (ionChange)="change(3)" okText="确定" cancelText="取消" interface="popover">
+          <ion-option *ngFor="let item of arrDept" value="{{item.id}}">{{item.name}} </ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item no-lines>
+        <ion-label>岗位</ion-label>
+        <ion-select [(ngModel)]="currentPositionId" placeholder="岗位列表" (ionChange)="change(4)" okText="确定" cancelText="取消" interface="popover">
+          <ion-option *ngFor="let item of positions" value="{{item.id}}">{{item.name}} </ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item no-lines>
+        <ion-label fixed>工号</ion-label>
+        <ion-input type="text" [(ngModel)]="filterCode"></ion-input>
+      </ion-item>
+      <ion-item no-lines>
+        <ion-label fixed>名字</ion-label>
+        <ion-input type="text" [(ngModel)]="filterName"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'tabTwo'">
+      <ion-item no-lines text-center>
+        <h2>正在进行查看操作</h2>
+        <p>请选择规则</p>
+        <button item-end ion-button small>重置</button>
+      </ion-item>
+      <ion-item>
+        <ion-list *ngFor="let flow of flows">
+          <ion-list-header no-lines (click)="setCurrentFlow(flow)">{{ flow.name }}
+            <ion-icon float-right [name]="flow.isSelected ? 'ios-radio-button-on':'ios-radio-button-off'"></ion-icon>
+          </ion-list-header>
+          <ion-item>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-2>操作</ion-col>
+                <ion-col col-5 text-center>{{ flow.apply_exe_level_up_limit_text }}</ion-col>
+                <ion-col col-5>{{ flow.apply_exe_level_low_limit_text }}</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-2>抄送</ion-col>
+                <ion-col col-5 text-center>{{ flow.copy_exe_level_up_limit_text }}</ion-col>
+                <ion-col col-5>{{ flow.copy_exe_level_low_limit_text }}</ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-footer>
+    <ion-row>
+      <ion-col>
+        <button ion-button full color="light" (click)="handleResetFilter()">重置</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button full (click)="handleConfirmFilter()">确定</button>
+      </ion-col>
+    </ion-row>
+  </ion-footer>
+</div>

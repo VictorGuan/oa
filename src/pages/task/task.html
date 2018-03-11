@@ -1,0 +1,132 @@
+<ion-menu [content]="content" side="right">
+  <ion-content>
+    <ion-item no-lines>
+      <ion-label>按照时间</ion-label>
+      <ion-datetime displayFormat="YY MMM DD" pickerFormat="YY MMM DD" placeholder="年-月-日"></ion-datetime>
+      <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+    </ion-item>
+    <h2>类型筛选</h2>
+    <ion-buttons padding-left padding-right>
+      <button ion-button button small outline [ngClass]="type == 1 ? 'selected':''" (click)="type = 1">奖励</button>
+      <button ion-button button small outline [ngClass]="type == 2 ? 'selected':''" (click)="type = 2">处罚</button>
+      <button ion-button button small outline [ngClass]="type == 3 ? 'selected':''" (click)="type = 3">全部</button>
+    </ion-buttons>
+    <h2>发起筛选</h2>
+    <ion-item no-lines bb>
+      <ion-label>选门店</ion-label>
+      <ion-select placeholder="门店选择">
+        <ion-option value="aaa">AAA</ion-option>
+        <ion-option value="bbb">BBB</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item no-lines bb>
+      <ion-label>选部门</ion-label>
+      <ion-select placeholder="部门选择">
+        <ion-option value="aaa">AAA</ion-option>
+        <ion-option value="bbb">BBB</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item no-lines bb>
+      <ion-label>选岗位</ion-label>
+      <ion-select placeholder="岗位选择">
+        <ion-option value="aaa">AAA</ion-option>
+        <ion-option value="bbb">BBB</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item no-lines bb>
+      <ion-label>选员工</ion-label>
+      <ion-select placeholder="员工选择">
+        <ion-option value="aaa">AAA</ion-option>
+        <ion-option value="bbb">BBB</ion-option>
+      </ion-select>
+    </ion-item>
+    <h2>负责人筛选</h2>
+    <ion-item no-lines bb>
+      <ion-label>选门店</ion-label>
+      <ion-select placeholder="门店选择">
+        <ion-option value="aaa">AAA</ion-option>
+        <ion-option value="bbb">BBB</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item no-lines bb>
+      <ion-label>选部门</ion-label>
+      <ion-select placeholder="部门选择">
+        <ion-option value="aaa">AAA</ion-option>
+        <ion-option value="bbb">BBB</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item no-lines bb>
+      <ion-label>选岗位</ion-label>
+      <ion-select placeholder="岗位选择">
+        <ion-option value="aaa">AAA</ion-option>
+        <ion-option value="bbb">BBB</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item no-lines bb>
+      <ion-label>选员工</ion-label>
+      <ion-select placeholder="员工选择">
+        <ion-option value="aaa">AAA</ion-option>
+        <ion-option value="bbb">BBB</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-content>
+  <ion-footer>
+    <ion-row>
+      <ion-col>
+        <button ion-button full color="light">重置</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button full>确定</button>
+      </ion-col>
+    </ion-row>
+  </ion-footer>
+</ion-menu>
+
+<ion-content #content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-segment [(ngModel)]="way" (ngModelChange)='changed()'>
+        <ion-segment-button value="one">
+          我的
+          <em dot></em>
+        </ion-segment-button>
+        <ion-segment-button value="two">
+          我核审
+          <em dot></em>
+        </ion-segment-button>
+        <ion-segment-button value="three">
+          抄送我
+          <em dot></em>
+        </ion-segment-button>
+      </ion-segment>
+      <ion-buttons right>
+        <button ion-button icon-only (click)="menu.toggle()">
+          <ion-icon name="ios-funnel"></ion-icon>
+        </button>
+        <button ion-button icon-only>
+          <ion-icon name="md-add"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div class="status-bar">
+      <span>全部2,今天3,延误0,去看已结束</span>
+      <ion-icon name="ios-arrow-forward" float-right></ion-icon>
+    </div>
+    <ion-list no-lines>
+      <ion-item *ngFor="let task of tasks">
+        <div class="top">
+          <span tag open>{{getStatus(task.status)}}</span>
+          <span title>{{ task.name }}</span>
+          <span float-right money>￥{{ task.amount }}</span>
+        </div>
+        <div class="bottom">
+          <span>小飞 —— 我</span>
+          <span updatetime>更新:13:25 09/09/17 小妹09/17 小妹09/17 小妹</span>
+          <span float-right>不足4小时</span>
+        </div>
+      </ion-item> 
+    </ion-list> 
+  </ion-content> 
+</ion-content>

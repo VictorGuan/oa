@@ -1,0 +1,37 @@
+<!--
+  Generated template for the AttendanceSettingDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+      <ion-title>岗位考勤奖罚设置</ion-title>
+      <ion-buttons right>
+        <button ion-button icon-only (click)="handleSubmit()" [disabled] ="!isApply">
+          提交
+        </button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid *ngFor ="let item of postionAttendanceData">
+  <ion-row align-items-center margin-top>
+    <ion-col col-3 text-center>{{item.name}}</ion-col>
+    <ion-col col-3 *ngIf = "checkAppalication(item)"><ion-input readonly="true" [(ngModel)] ="item.amount"></ion-input></ion-col>
+    <ion-col col-3 offset-1 *ngIf = "!checkAppalication(item)"><ion-input [(ngModel)] ="item.amount" placeholder="输入申请值" (onBlur)="triggerApply()"></ion-input></ion-col>
+  </ion-row>
+  <ion-row align-items-center>
+    <ion-col col-3></ion-col>
+    <ion-col col-3  *ngIf = "checkAppalication(item)">{{item.status == 1 ?'已核对':''}}</ion-col>
+    <ion-col col-3 offset-1 *ngIf = "!checkAppalication(item)">未申请</ion-col>
+  </ion-row>
+  </ion-grid>
+</ion-content>

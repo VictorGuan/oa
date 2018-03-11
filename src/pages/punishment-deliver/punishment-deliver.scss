@@ -1,0 +1,50 @@
+page-punishment-deliver{
+    ion-content {
+        .item-block {
+            border-bottom: 1px solid #eeeeee !important;
+            min-height: 2.8rem;
+        }
+        ion-item {
+            .note-ios , .note-md {
+                color: #333333;
+                font-size: 1.4rem;
+            }
+            em {
+                color: #488AFF;
+            }
+            ion-textarea {
+               border: 1px solid #eeeeee;
+               margin: 10px;
+               font-size: 1.4rem;
+            }
+            textarea {
+                min-height: 80px;
+            }
+            .text-input-ios , .text-input-md {
+                margin: 3px 5px;
+            }
+            .label-ios + ion-textarea .text-input {
+                margin-left: 5px;
+            }
+            ion-label {
+                color: #333333 !important;
+            }
+            ion-input {
+                font-size: 1.4rem;
+            }
+        }
+        .dept {
+            margin-top: 1px;
+            ion-list-header {
+                min-height: 2.2rem;
+                background: #eeeeee;
+                color: #333333 !important;
+                font-size: 1.4rem;
+                margin-bottom: 0px;
+            }
+            ion-list {
+                margin-bottom:10px !important;
+            }
+        }
+    }
+}

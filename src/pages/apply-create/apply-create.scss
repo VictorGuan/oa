@@ -1,0 +1,26 @@
+page-apply-create ion-item {
+  padding-left: 0px !important;
+  min-height: 2.8rem !important;
+}
+
+page-apply-create ion-item ion-label {
+    margin: 0px !important;
+    padding-left:16px;
+}
+page-apply-create ion-item ion-icon {
+    margin: 4px !important; 
+}
+page-apply-create ion-grid {
+    padding: 0px !important;
+    border-bottom: 1px solid #c8c7cc;
+}
+page-apply-create ion-grid ion-col {
+    padding: 0px !important;
+}
+page-apply-create ion-grid ion-col ion-item:active {
+    background: #dddddd;
+}
+page-apply-create ion-grid ion-col ion-avatar {
+    margin-left: 16px !important;
+    margin-right: 0px !important;
+}

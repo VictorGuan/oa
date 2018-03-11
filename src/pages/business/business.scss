@@ -1,0 +1,16 @@
+page-business .list-ios .item-block .item-inner {
+    border-bottom: none !important;
+}
+page-business ion-item-sliding .item {
+    border-bottom: 1px solid #eeeeee !important;
+}
+page-business ion-item-sliding .item:active {
+    background: #eeeeee;
+}
+page-business ion-item-sliding .item-ios [item-end] {
+    margin: 0px !important;
+}
+page-business ion-item-sliding .item-ios ion-icon[item-end] {
+    margin-left: 8px !important;
+    vertical-align:-1px;
+}

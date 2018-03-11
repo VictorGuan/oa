@@ -1,0 +1,71 @@
+<!--
+  Generated template for the EmployeeSchedulingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button icon-only color="royal" (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>员工排班</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only color="royal" (click)="handleSave()">
+        保存
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="calendar" padding-left padding-right>
+        <h2>行业>部门>岗位><em>员工</em></h2>
+        <p text-center>
+          <ion-icon float-left  name="ios-arrow-back"></ion-icon>
+          2017年
+          <ion-icon float-right name="ios-arrow-forward"></ion-icon>
+        </p>
+        <ion-row text-center>
+          <ion-col col-2 text-center><span>1月</span></ion-col>
+          <ion-col col-2><span>2月</span></ion-col>
+          <ion-col col-2><span>3月</span></ion-col>
+          <ion-col col-2><span>4月</span></ion-col>
+          <ion-col col-2><span>5月</span></ion-col>
+          <ion-col col-2><span>6月</span></ion-col>
+          <ion-col col-2><span>7月</span></ion-col>
+          <ion-col col-2><span>8月</span></ion-col>
+          <ion-col col-2><span>9月</span></ion-col>
+          <ion-col col-2><span>10月</span></ion-col>
+          <ion-col col-2><span  class="actived">11月</span></ion-col>
+          <ion-col col-2><span>12月</span></ion-col>
+        </ion-row>
+      </div>
+      <ion-grid>
+        <ion-row week>
+          <ion-col>日</ion-col>
+          <ion-col>一</ion-col>
+          <ion-col>二</ion-col>
+          <ion-col>三</ion-col>
+          <ion-col>四</ion-col>
+          <ion-col>五</ion-col>
+          <ion-col>六</ion-col>
+        </ion-row>
+        <ion-row date *ngFor="let weeks of days">
+            <ion-col col-week *ngFor="let day of weeks" (click)="handleOnDaySelect(day)" [ngClass]=" dayCurrent && dayCurrent.no == day.no ? 'on':''">
+              <span>{{day.no}}</span>
+              <span [ngStyle]="{'color': colors[day.flag - 1]}">{{day.text}}</span>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-buttons padding>
+        <button ion-button button small outline [ngClass]="dayCurrent && dayCurrent.flag == 1 ?'on':''">早班</button>
+        <button ion-button button small outline [ngClass]="dayCurrent && dayCurrent.flag == 2 ?'on':''">中班</button>
+        <button ion-button button small outline [ngClass]="dayCurrent && dayCurrent.flag == 3 ?'on':''">晚班</button>
+        <span float-right><em>8</em>天</span>
+      </ion-buttons>
+</ion-content>
+

@@ -1,0 +1,76 @@
+<!--
+  Generated template for the PunishmentRewardOpenPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons start>
+      <button ion-button icon-only color="royal" (click)="handleGoback()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+      </ion-buttons>
+      <ion-title>接受罚单</ion-title>
+      <ion-buttons end>
+      <button ion-button icon-only small color="royal" (click)="handleConfirm()">
+          提交
+      </button>
+      </ion-buttons>
+  </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+      <div>
+          <ion-segment [(ngModel)]="type">
+              <ion-segment-button value="1"  (click)="changeType(1)">
+              奖励
+              </ion-segment-button>
+              <ion-segment-button value="0"  (click)="changeType(0)">
+              处罚
+              </ion-segment-button>
+          </ion-segment>
+      </div>
+      <div margin-top>
+          <ion-row text-center>
+             <ion-col col-2>
+                  <p>员工</p>
+             </ion-col> 
+             <ion-col>
+                    <ion-input placeholder="点击选择员工" readonly text-right (click)="showTree()"  [(ngModel)] ="selectedObjName"></ion-input>
+             </ion-col> 
+          </ion-row>
+          <ion-item no-lines *ngIf ="isShowTree">
+                <tree [items]="treeData" (onSelect)="handleSelect($event)"></tree>
+            </ion-item>
+          <ion-row text-center>
+              <ion-col>
+                  <ion-searchbar [(ngModel)]="name"></ion-searchbar>
+              </ion-col>
+              <ion-col col-2>
+                  <button ion-button small (click)="searchByName(name)">
+                      搜索   
+                  </button>
+              </ion-col>
+          </ion-row>
+          <div class="detail-list">
+              <button ion-button small outline *ngFor ="let item of punishments">{{item.name}}</button>
+          </div>
+          <ion-item no-lines>
+              <ion-label>金额</ion-label>
+              <ion-input type="number" [(ngModel)] ="amountCount"></ion-input>
+          </ion-item>
+          <ion-item no-lines>
+              <ion-label>说明</ion-label>
+              <ion-textarea type="text" [(ngModel)] ="comment"></ion-textarea>
+          </ion-item>
+          <ion-row text-center>
+              <ion-col col-2>
+                      <p>抄送</p>
+              </ion-col> 
+              <ion-col>
+                  <p class="ipt">点击后选择行政级别</p>
+              </ion-col> 
+          </ion-row>
+      </div>
+  </ion-content>
+  

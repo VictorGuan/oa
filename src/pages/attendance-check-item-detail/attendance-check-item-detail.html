@@ -1,0 +1,77 @@
+<!--
+  Generated template for the AttendanceCheckItemDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+      <ion-title *ngIf ="isPositionView">考勤详情核对</ion-title>
+      <ion-title *ngIf ="isPersonalView">核对结果</ion-title>
+      <ion-buttons right>
+        <button ion-button icon-only (click)="handleSubmit()" *ngIf ="isPositionView">
+          提交
+        </button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-row>
+        <ion-col col-3 text-center ><strong>{{month}}月{{day}}日</strong></ion-col>
+        <ion-col></ion-col>
+    </ion-row>
+  <ion-row>
+    <ion-col col-3 text-center >考勤结果</ion-col>
+    <ion-col>{{mapStatus('finalStatus',attendanceDetailItemModel.final_status)}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-3 text-center>排班时间</ion-col>
+    <ion-col>{{attendanceDetailItemModel.from}}</ion-col>
+    <ion-col>{{attendanceDetailItemModel.to}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-3 text-center>实际考勤</ion-col>
+    <ion-col>{{attendanceDetailItemModel.on_duty_time}}</ion-col>
+    <ion-col>{{attendanceDetailItemModel.off_duty_time}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-3 text-center>打卡位置</ion-col>
+    <ion-col>{{attendanceDetailItemModel.location}}</ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-3 text-center>原因说明</ion-col>
+    <ion-col>{{describles}}</ion-col>
+  </ion-row>
+  <ion-row text-center>
+    <ion-col col-2>
+        <img src="../../assets/imgs/venkman.jpg">
+    </ion-col>
+    <ion-col col-2>
+        <img src="../../assets/imgs/venkman.jpg">
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-3 text-center align-self-center>核对结果</ion-col>
+    <ion-col>
+      <ion-select *ngIf ="isPositionView" placeholder="核对结果选择" [(ngModel)]="decision">
+        <ion-option value="0">设为正常</ion-option>
+        <ion-option value="1">保持正常</ion-option>
+      </ion-select>
+      <ion-col *ngIf ="isPersonalView">{{mapStatus('decision',checkModel.decision)}}</ion-col>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col col-3 text-center>核对意见</ion-col>
+      <ion-col>
+        <ion-textarea [(ngModel)]="checkModel.comment" [disabled]="isPersonalView"></ion-textarea>
+      </ion-col>
+  </ion-row>
+  <h2 text-center>核对结果会抄送给上级，请认真核对</h2>
+</ion-content>

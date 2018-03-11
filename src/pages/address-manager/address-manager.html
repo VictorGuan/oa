@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>地点管理</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="handleAdd()">
+        添加
+      </button>
+      <button ion-button icon-only color="royal" (click)="handleSave()">
+        保存
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="address">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3>
+        <ion-select (ngModel)="item.name" placeholder="选择省" (ionChange)="handleProvinceChange()" interface="popover">
+          <ion-option *ngFor="let item of data" [value]="item.name">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-col>
+      <ion-col  col-3>
+        <ion-select (ngModel)="item.name" placeholder="选择市" (ionChange)="handleCityChange()" interface="popover">
+          <ion-option *ngFor="let item of citys" [value]="item.name">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-col>
+      <ion-col  col-3>
+      <ion-select (ngModel)="item.name" placeholder="选择区/县" (ionChange)="handleAreaChange()" interface="popover">
+        <ion-option *ngFor="let item of areas" [value]="item.name">{{item.name}}</ion-option>
+      </ion-select>
+      </ion-col>
+      <ion-col  col-3>
+      <ion-select (ngModel)="item.name" placeholder="选择街道" (ionChange)="handleStreetChange()" interface="popover">
+        <ion-option *ngFor="let item of streets" [value]="item.name">{{item.name}}</ion-option>
+      </ion-select>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-list>
+  <ion-item-sliding #slidingItem *ngFor="let item of addressList ; let i = index">
+    <ion-item>
+      <h2>{{item.address}}</h2>
+    </ion-item>
+    <ion-item-options side="right">
+      <button ion-button color="primary" (click)="handleEdit(slidingItem)">
+        修改
+      </button>
+      <button ion-button color="secondary" (click)="handleDel(slidingItem)">
+        删除
+      </button>
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+</ion-content>

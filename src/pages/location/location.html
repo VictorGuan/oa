@@ -1,0 +1,60 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button icon-only (click) = "handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>地点</ion-title>
+    <div float-right>
+        <button ion-button small (click)="addItem()">
+            添加
+        </button>
+        <button ion-button small>
+            保存
+        </button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <ion-row>
+      <ion-col col-3>
+        <ion-select #p [(ngModel)]="current.province" placeholder="选择省" (ionChange)="change(1,p.text)" okText="确定" cancelText="取消" interface="popover">
+          <ion-option *ngFor="let item of allProvinces" value="{{item.id}}">{{item.name}} </ion-option>
+        </ion-select>
+      </ion-col>
+      <ion-col col-3>
+        <ion-select [(ngModel)]="current.city"  placeholder="选择市" (ionChange)="change(2,c.text)" #c okText="确定" cancelText="取消" interface="popover">
+          <ion-option *ngFor="let item of allCitys" value="{{item.id}}">{{item.name}} </ion-option>
+        </ion-select>
+      </ion-col>
+      <ion-col col-3>
+        <ion-select [(ngModel)]="current.area" placeholder="选择区/县" (ionChange)="change(3,a.text)" #a okText="确定" cancelText="取消" interface="popover">
+          <ion-option *ngFor="let item of allAreas" value="{{item.id}}">{{item.name}} </ion-option>
+        </ion-select>
+      </ion-col>
+      <ion-col col-3>
+          <ion-select [(ngModel)]="current.street"  placeholder="选择街道" (ionChange)="change(4,s.text)" #s okText="确定" cancelText="取消" interface="popover">
+            <ion-option *ngFor="let item of allStreets" value="{{item.id}}">{{item.name}} </ion-option>
+          </ion-select>
+        </ion-col>
+    </ion-row>
+  </div>
+  <ion-list>
+    <ion-item-sliding  #slidingItem  *ngFor="let item of currentItems">
+      <button ion-item>
+        {{item.name}}
+      </button>
+      <ion-item-options>
+        <button ion-button color="primary" icon-start (click)="saveItem(slidingItem,item)">
+          修改
+        </button>
+        <button ion-button color="danger" (click)="deleteItem(slidingItem,item)">
+         删除
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

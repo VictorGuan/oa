@@ -1,0 +1,22 @@
+ <!--Generated template for the TreeComponent component -->
+<ul>
+    <li *ngFor="let item of items" no-lines>
+      <div class="tree-item" (click)="handleNodeClick(item , $event)">
+        <ion-icon #arrow *ngIf="item.children && item.children.length"
+            name="md-arrow-dropdown"
+            (click)="handleDropArrowClick($event)">
+        </ion-icon>
+        <span>
+          {{item.name}}
+        </span>
+        <ion-icon *ngIf="item.isSelected" 
+            item-end color="primary" 
+            name="ios-checkmark">
+        </ion-icon>
+      </div>
+      <tree 
+        *ngIf="item.children && item.children.length"
+        [items]="item.children" (onSelect)="handleSelect($event)">
+      </tree>
+    </li>
+  </ul>

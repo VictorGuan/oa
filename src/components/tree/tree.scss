@@ -1,0 +1,31 @@
+
+
+tree ul , 
+tree li {margin:0px;padding:0px;}
+tree ul {padding-left:16px;}
+tree li {
+    list-style:none;
+}
+tree ul li .tree-item {
+    position:relative;  
+    font-size:1.4em;
+}
+tree ul li span {
+    display:block;
+    line-height:40px;
+    padding-left:22px;
+}
+
+tree ul li ion-icon {
+    position:absolute;
+    line-height:40px;
+    top: 0px;
+}
+tree ul li .ion-md-arrow-dropdown {
+    width:22px;
+    text-align: center;
+}
+tree ul li .ion-ios-checkmark {
+    right: 16px;
+    font-size:2.0em;
+}

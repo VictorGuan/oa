@@ -1,0 +1,53 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal" (click)="handleGoBack()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>申请类别管理</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-select [(ngModel)]="current.level1" placeholder="一级分类" (ionChange)="change(2,a.text)" #a okText="确定" cancelText="取消" interface="popover">
+        <ion-option *ngFor="let item of allLevel1" value="{{item.id}}">{{item.name}} </ion-option>
+      </ion-select>
+    </ion-col>
+    <ion-col>
+      <ion-select [(ngModel)]="current.level2" placeholder="二级分类" (ionChange)="change(3,b.text)" #b okText="确定" cancelText="取消" interface="popover">
+        <ion-option *ngFor="let item of allLevel2" value="{{item.id}}">{{item.name}} </ion-option>
+      </ion-select>
+    </ion-col>
+    <ion-col>
+      <ion-select [(ngModel)]="current.level3" placeholder="三级分类" (ionChange)="change(4,c.text)"  #c okText="确定" cancelText="取消" interface="popover">
+        <ion-option *ngFor="let item of allLevel3" value="{{item.id}}">{{item.name}} </ion-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-8>
+      <ion-searchbar [(ngModel)]="searchWord"></ion-searchbar>
+    </ion-col>
+    <ion-col text-center>
+      <button ion-button small (click)="handleSearch()">搜索</button>
+      <button ion-button small (click)="handleAdd()">添加</button>
+    </ion-col>
+  </ion-row>
+  <ion-list>
+    <ion-item-sliding #slidingItem *ngFor="let item of currentItems">
+      <ion-item> {{item.name}} </ion-item>
+      <ion-item-options>
+        <button ion-button color="primary" icon-start (click)="saveItem(slidingItem,item)">
+          修改
+        </button>
+        <button ion-button color="danger" (click)="deleteItem(slidingItem,item)">
+          删除
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

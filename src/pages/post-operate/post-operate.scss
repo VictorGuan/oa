@@ -1,0 +1,35 @@
+
+page-post-operate {
+    ion-header {
+        ion-buttons[right] {
+            ion-icon {
+                font-size: 1.4em !important;
+            }
+        }
+    }
+    ion-menu {
+        .item-ios [item-end]  , .item-md [item-end]{
+            font-size: 1.4rem;
+            color: #999999;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        .item-inner > ion-icon {
+            line-height: 2.4em;
+        }
+        p {
+            padding-left: 16px;
+            line-height: 2.4rem;
+            font-size: 1.6rem;
+            background: #eeeeee;
+        }
+        ion-buttons {
+            padding: 5px 16px;
+            button.on {
+                background: #488aff;
+                color: #ffffff;
+            }
+        }
+
+    }
+}

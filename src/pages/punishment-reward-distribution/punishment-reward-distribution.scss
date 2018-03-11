@@ -1,0 +1,60 @@
+
+page-punishment-reward-distribution ion-menu h2 {
+    margin: 0px;
+    font-size:1.8rem;
+}
+page-punishment-reward-distribution ion-menu button.selected {
+    background: #488aff;
+    color: #ffffff;
+}
+
+page-punishment-reward-distribution ion-menu .searchbar-ios {
+    background: #ffffff;
+    border-top: 1px solid #dddddd;
+    border-bottom:1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-left:1px solid #dddddd;
+    border-radius: 8px;
+    min-height: 28px;
+}
+page-punishment-reward-distribution ion-menu .searchbar-ios .searchbar-input {
+    padding-right: 28px !important;
+    padding-left: 18px !important;
+    height: 2.8rem;
+}
+page-punishment-reward-distribution ion-menu .searchbar-ios .searchbar-search-icon {
+    left: 0px;
+    top: 11px;
+}
+page-punishment-reward-distribution ion-menu ion-item {
+    min-height: 2.2rem !important;
+}
+
+page-punishment-reward-distribution ion-menu ion-item ion-label {
+    min-width: 60px;
+    font-size: 1.4rem;
+    -webkit-box-flex: none !important;
+    -webkit-flex: none !important;
+    -ms-flex: none !important;
+    flex:none !important;
+}
+page-punishment-reward-distribution ion-menu ion-item ion-select {
+    padding: 3px 8px 3px 5px !important;
+    border: 1px solid #dddddd;
+    font-size: 1.4rem;
+    min-width: 45%;
+} 
+page-punishment-reward-distribution ion-header ion-icon.ion-ios-funnel {
+    font-size: 1.4em !important;
+}
+
+page-punishment-reward-distribution ion-content .punishment-list {
+    border: 1px solid #dddddd;
+    max-height: 200px;
+    min-height: 200px;
+    padding: 5px;
+    overflow-y: auto;
+}
+page-punishment-reward-distribution ion-content p {
+    padding-bottom: 10px;
+}

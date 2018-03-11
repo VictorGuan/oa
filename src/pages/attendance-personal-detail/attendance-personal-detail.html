@@ -1,0 +1,128 @@
+<!--
+  Generated template for the AttendancePersonalDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-menu [content]="content" side="right">
+  <ion-content>
+      <ion-item no-lines>
+        <ion-label>选择月份</ion-label>
+        <ion-datetime displayFormat="YYYY MMM DD" pickerFormat="YYYY MMM DD" placeholder="选择月份" [(ngModel)]="selectDate"></ion-datetime>
+        <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+      </ion-item>
+      <p>核对筛选</p>
+      <ion-buttons>
+        <button ion-button button small outline
+          [ngClass]="filter == 1 ? 'on':''"
+          (click)="filter = 1">正常</button>
+        <button ion-button button small outline
+          [ngClass]="filter == 0 ? 'on':''"
+          (click)="filter = 0">异常</button>
+        <button ion-button button small outline
+          [ngClass]="filter == -1 ? 'on':''"
+          (click)="filter = -1">全部</button>
+      </ion-buttons>
+  <ion-footer>
+    <ion-row>
+        <ion-col>
+        <button ion-button full color="light" (click)="reset()">重置</button>
+        </ion-col>
+        <ion-col>
+        <button ion-button full (click)="search($event)">确定</button>
+        </ion-col>
+    </ion-row>
+</ion-footer>
+</ion-content>
+</ion-menu>
+<ion-content #content>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+      <ion-title>考勤记录</ion-title>
+      <ion-buttons right>
+        <button ion-button icon-only (click)="menu.toggle()">
+          <ion-icon name="ios-funnel"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item no-lines>
+    <h2>2017年11月</h2>
+    <p item-end>
+      <span class="checked">已核对</span>
+      <span class="unchecked">未核对</span>
+    </p>
+  </ion-item>
+  <ion-slides>
+    <ion-slide>
+      <ion-row week-bar>
+        <ion-col>日</ion-col>
+        <ion-col>一</ion-col>
+        <ion-col>二</ion-col>
+        <ion-col>三</ion-col>
+        <ion-col>四</ion-col>
+        <ion-col>五</ion-col>
+        <ion-col>六</ion-col>
+      </ion-row>
+      <ion-row date-item>
+        <ion-col><span>1</span></ion-col>
+        <ion-col><span class="checked">2</span></ion-col>
+        <ion-col><span class="unchecked">3</span></ion-col>
+        <ion-col><span class="on unchecked">4</span></ion-col>
+        <ion-col><span class="unchecked">5</span></ion-col>
+        <ion-col><span>6</span></ion-col>
+        <ion-col><span class="checked">7</span></ion-col>
+      </ion-row>
+    </ion-slide>
+    <ion-slide>
+      <ion-row week-bar>
+        <ion-col>日</ion-col>
+        <ion-col>一</ion-col>
+        <ion-col>二</ion-col>
+        <ion-col>三</ion-col>
+        <ion-col>四</ion-col>
+        <ion-col>五</ion-col>
+        <ion-col>六</ion-col>
+      </ion-row>
+      <ion-row date-item>
+        <ion-col><span>8</span></ion-col>
+        <ion-col><span class="checked">9</span></ion-col>
+        <ion-col><span class="unchecked">10</span></ion-col>
+        <ion-col><span class="unchecked">11</span></ion-col>
+        <ion-col><span class="unchecked">12</span></ion-col>
+        <ion-col><span>6</span></ion-col>
+        <ion-col><span class="checked">13</span></ion-col>
+      </ion-row>
+    </ion-slide>
+  </ion-slides>
+  <p separator>11月28日</p>
+  <ion-list no-lines>
+    <ion-item (click)="handleItemDetail()">
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/venkman.jpg">
+      </ion-avatar>
+      <h2>AAA 正常 (签到 7:45)</h2>
+      <p>有无效打卡记录</p>
+      <p>说明原因:上班</p>
+      <ion-note item-end>未核对</ion-note>
+    </ion-item>
+    <ion-item (click)="handleItemDetail()">
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/venkman.jpg">
+      </ion-avatar>
+      <h2>BBB 正常 (签退 18:45)</h2>
+      <p>有无效打卡记录</p>
+      <p>说明原因:上班</p>
+      <ion-note item-end>未核对</ion-note>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+</ion-content>

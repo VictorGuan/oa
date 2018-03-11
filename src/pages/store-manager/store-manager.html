@@ -1,0 +1,101 @@
+
+<ion-menu [content]="content" side="right">
+    <ion-header>
+        <ion-toolbar>
+          <ion-title>门店筛选</ion-title>
+        </ion-toolbar>
+      </ion-header>
+    <ion-content padding>
+        <ion-item no-lines>
+          <ion-label>按时间从</ion-label>
+          <ion-datetime displayFormat="YYYY-MM-DD" placeholder="选择开始时间" pickerFormat="YYYY-MM-DD" [(ngModel)]="searchFilterMap.startDate"></ion-datetime>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-label>到</ion-label>
+          <ion-datetime displayFormat="YYYY-MM-DD" placeholder="选择结束时间" pickerFormat="YYYY-MM-DD" [(ngModel)]="searchFilterMap.endDate"></ion-datetime>
+        </ion-item>
+        <button margin-top ion-button small outline
+                [ngClass]="searchFilterMap.allTime?'selected':''" 
+                (click)="selectAllTime()">所有时间</button>
+        <ion-row margin-top>
+            <button margin-top ion-button small outline [ngClass]="searchFilterMap.isBusiness?'selected':''" (click)="searchFilterMap.isBusiness = !searchFilterMap.isBusiness">营业中</button>
+            <button margin-top ion-button small outline [ngClass]="searchFilterMap.isPrepare?'selected':''" (click)="searchFilterMap.isPrepare = !searchFilterMap.isPrepare">筹备中</button>
+            <button margin-top ion-button small outline [ngClass]="searchFilterMap.isStop?'selected':''" (click)="searchFilterMap.isStop = !searchFilterMap.isStop">停业中</button>
+            <button margin-top ion-button small outline [ngClass]="searchFilterMap.isClosed?'selected':''" (click)="searchFilterMap.isClosed = !searchFilterMap.isClosed">已关闭</button>
+            <button margin-top ion-button small outline [ngClass]="searchFilterMap.isAll?'selected':''" (click)="selectAllStatus()">所有</button>
+        </ion-row>
+        <ion-item margin-top>
+            <ion-label>区域</ion-label>
+            <ion-select [(ngModel)]="searchFilterMap.area" interface="popover" placeholder="选择区域">
+                <ion-option value="nes">上海</ion-option>
+                <ion-option value="n64">南京</ion-option>
+                <ion-option value="ps">北京</ion-option>
+                <ion-option value="genesis">天津</ion-option>
+                <ion-option value="saturn">杭州</ion-option>
+                <ion-option value="snes">深圳</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item no-lines>
+            <ion-searchbar [(ngModel)]="searchFilterMap.name" placeholder="名称查询"></ion-searchbar>
+        </ion-item>
+        <ion-footer>
+          <ion-row>
+            <ion-col>
+              <button ion-button full color="light" (click)="reset()">重置</button>
+            </ion-col>
+            <ion-col>
+              <button ion-button full (click)="onSearch($event)">确定</button>
+            </ion-col>
+          </ion-row>
+        </ion-footer>
+    </ion-content>
+</ion-menu>
+
+<ion-content #content >
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons start>
+        <button ion-button icon-only color="royal" (click)="handleGoBack()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>{{selectedBusiness.name}}&nbsp;门店列表</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only color="royal" (click)="handleShowFilterMenu()">
+            <ion-icon name="ios-funnel"></ion-icon>
+        </button>
+        <button ion-button icon-only color="royal" (click)="addShop($event)">
+            <ion-icon name="md-add"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item-sliding #slidingItem *ngFor = "let item of shops">
+          <ion-item (click)="itemTapped($event, item)">
+            <h2>{{item.id}}<ion-note [class]="item.status == 0 ? 'stop':'business'">{{item.name}}</ion-note></h2>
+            <p>{{item.address}}</p>
+            <ion-note item-end>
+                <p>{{item.departments_count}}/{{item.staffCount}}员工</p>
+                <p>店长:{{item.business_id}}</p>
+            </ion-note>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="primary" (click) = "handleEdit(item)">
+              修改
+            </button>
+            <button ion-button color="secondary" (click) = "handleStop(item)">
+              暂停营业
+            </button>
+            <button ion-button color="secondary" (click) = "handleClose(item)">
+              关闭门店
+            </button>
+          </ion-item-options>
+          
+        </ion-item-sliding>
+      </ion-list>
+</ion-content>
+</ion-content>

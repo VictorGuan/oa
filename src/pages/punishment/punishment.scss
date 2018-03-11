@@ -1,0 +1,87 @@
+ page-punishment ion-menu h2 {
+        margin: 0px;
+        font-size:1.8rem;
+    }
+    page-punishment ion-menu button.selected {
+        background: #488aff;
+        color: #ffffff;
+    }
+    
+    page-punishment ion-menu .searchbar-ios {
+        background: #ffffff;
+        border-top: 1px solid #dddddd;
+        border-bottom:1px solid #dddddd;
+        border-right: 1px solid #dddddd;
+        border-left:1px solid #dddddd;
+        border-radius: 8px;
+        min-height: 28px;
+    }
+    page-punishment ion-menu .searchbar-ios .searchbar-input {
+        padding-right: 28px !important;
+        padding-left: 18px !important;
+        height: 2.8rem;
+    }
+    page-punishment ion-menu .searchbar-ios .searchbar-search-icon {
+        left: 0px;
+        top: 11px;
+    }
+    page-punishment ion-menu ion-item {
+        min-height: 2.2rem !important;
+    }
+    
+    page-punishment ion-menu ion-item ion-label {
+        min-width: 60px;
+        font-size: 1.4rem;
+        -webkit-box-flex: none !important;
+        -webkit-flex: none !important;
+        -ms-flex: none !important;
+        flex:none !important;
+    }
+    page-punishment ion-menu ion-item ion-select {
+        padding: 3px 8px 3px 5px !important;
+        border: 1px solid #dddddd;
+        font-size: 1.4rem;
+        min-width: 45%;
+    } 
+    page-punishment ion-header ion-icon.ion-ios-funnel {
+        font-size: 1.4em !important;
+    }
+    page-punishment ion-content ion-list ion-item {
+        border-bottom: 1px solid #eeeeee !important;
+    }
+    page-punishment ion-content ion-list ion-item .item-inner {
+        border-bottom: none !important;
+    }
+    page-punishment ion-content ion-list ion-label {
+        margin: 0px 8px 0px 0px !important;
+    }
+    page-punishment ion-content ion-list ion-item p strong{
+        color:#000 !important;
+    }
+    page-punishment ion-content ion-list ion-item p.middle {
+        line-height: 1.8rem !important;
+    }
+    page-punishment ion-content ion-list ion-item .toggle-box {
+        padding-left: 0px !important;
+        min-height: 1.6rem;
+        margin: 0px !important;
+    }
+    page-punishment ion-content ion-list ion-item .toggle-box .input-wrapper {
+        display: none !important;
+    }
+    page-punishment ion-content ion-list ion-item .toggle-box  .item-inner {
+        padding-right: 0px !important;
+    }
+    page-punishment ion-content ion-list ion-item ion-toggle {
+        padding: 0px !important;
+        width: 42px !important;
+        height: 20px !important;
+    }
+    page-punishment ion-content ion-list ion-item ion-toggle .toggle-inner {
+        top: 0px !important;
+        width: 20px !important;
+        height: 20px !important;
+    }
+    page-punishment ion-content ion-list>ion-item:active {
+        background: #eeeeee;
+    }

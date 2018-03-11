@@ -1,0 +1,55 @@
+page-punishment-reward-open {
+    .segment-ios .segment-button {
+        height: 2.2rem;
+        line-height: 2rem;
+    }
+    ion-row ion-col p {
+        line-height:1.8em;
+        margin: 4px 0px;
+    }
+    ion-row ion-col p.ipt {
+        border: 1px solid #dddddd;
+        padding: 0 10px;
+        text-align: left;
+        color: #999999;
+    }
+    .searchbar-ios {
+        background: none;
+        border: 1px solid #dddddd;
+        border-radius: 8px;
+        min-height: 38px;
+    }
+    .searchbar-ios .searchbar-search-icon {
+        left: 6px;
+        top: 12px;
+    }
+    .detail-list {
+        border: 1px solid #dddddd;
+        padding: 5px;
+        margin-top: 10px;
+        max-height: 160px;
+        min-height: 160px;
+        overflow-y: auto;
+    }
+    .button-outline-ios.activated {
+        background: #ffffff;
+        color: #488aff;
+    }
+    .item-input ion-label {
+        font-size: 1.4rem;
+        min-width: 46px;
+    }
+    ion-input, ion-textarea {
+        border: 1px solid #dddddd;
+    } 
+    .text-input-ios {
+        margin: 5px 8px 5px 0px;
+    }
+    .item-input ion-input {
+        flex: none;
+        width: 80px;
+    }
+    .item-input ion-textarea {
+        min-height: 140px;
+    }
+}

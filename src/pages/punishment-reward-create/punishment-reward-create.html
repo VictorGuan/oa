@@ -1,0 +1,56 @@
+<!--
+  Generated template for the PunishmentRewardCreatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons start>
+      <button ion-button icon-only color="royal" (click)="handleGoback()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+      </ion-buttons>
+      <ion-title>添加奖惩</ion-title>
+      <ion-buttons end>
+      <button ion-button icon-only small color="royal" (click)="handleConfirm($event)">
+          提交
+      </button>
+      </ion-buttons>
+  </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+      <ion-row>
+          <ion-col>
+              <ion-select [(ngModel)] ="type" placeholder="选类别">
+                  <ion-option value="1">奖励</ion-option>
+                  <ion-option value="0">罚单</ion-option>
+              </ion-select>
+          </ion-col>
+          <ion-col>
+              <ion-input placeholder="点击选择对象" readonly text-right (click)="showTree()"  [(ngModel)] ="selectedObjName"></ion-input>                       
+          </ion-col>
+      </ion-row>
+      <ion-item no-lines *ngIf ="isShowTree">
+          <tree [items]="treeData" (onSelect)="handleSelect($event)"></tree>
+      </ion-item>
+      <ion-item no-lines>
+          <ion-label>名称</ion-label>
+          <ion-input [(ngModel)] ="name" ></ion-input>
+      </ion-item>
+      <ion-item no-lines>
+          <ion-label>介绍</ion-label>
+          <ion-input [(ngModel)] ="desc"></ion-input>
+      </ion-item>
+      <ion-item no-lines>
+          <ion-label>金额</ion-label>
+          <ion-input [(ngModel)] ="amount"></ion-input>
+      </ion-item>
+      <ion-item no-lines> 
+          <ion-label>默认应用</ion-label>
+          <ion-toggle [(ngModel)]="status" value="ok" checked="true"></ion-toggle>
+      </ion-item>
+  </ion-content>
+
+
+

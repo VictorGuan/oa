@@ -1,0 +1,53 @@
+page-punch-clock {
+    ion-content {
+        h2 {
+            line-height: 2.2em;
+            text-align: center;
+            color: #EA442A;
+        }
+        .clock {
+            width: 180px;
+            height: 180px;
+            margin: 20px auto 0 auto;
+            border: 1px solid #999999;
+            background-color: #eeeeee;
+            border-radius: 50%;
+        }
+        .clock p {
+            width: 100%;
+            line-height: 40px;
+            text-align: center;
+            font-size:2.2rem;
+        }
+        .clock p:first-child {
+            line-height: 70px;
+        }
+        .clock p:last-child {
+            font-size:1.6rem;
+            line-height: 70px;
+        }
+        .clock.normal {
+            border: 1px solid #0389DC;
+            background-color: #3AA8EA;
+            color: #ffffff;
+        }
+        .clock.un {
+            border: 1px solid #BF1B01;
+            background-color: #EA442A;
+            color: #ffffff;
+        }
+        .clock.leave  {
+            border: 1px solid #8702B2;
+            background-color: #AF18DF;
+            color: #ffffff;
+        }
+        .clock.late {
+            border: 1px solid #01AD3A;
+            background-color: #21DA5E;
+            color: #ffffff;
+        }
+
+
+    }
+    
+}

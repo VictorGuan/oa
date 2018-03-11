@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>流程审批</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="data">
+    <ion-item class="first-item" no-lines no-padding padding-left>
+      <ion-avatar item-start>
+        <img src="../../assets/imgs/venkman.jpg">
+      </ion-avatar>
+      <h2>
+        {{ data.applicationType[0].name }}
+        <ion-note float-right> {{ data.created_at | local | date:'MM-dd HH:mm' }}</ion-note>
+      </h2>
+      <p>申请人:
+        <strong> {{ data.from_staff }}</strong>
+      </p>
+    </ion-item>
+    <div padding class="detail">
+      <dl *ngFor="let field of data.fields">
+        <dt>
+          <strong>{{ field.key }}</strong>
+        </dt>
+        <dd>
+          <strong>{{ field.value }}</strong>
+        </dd>
+      </dl>
+      <!-- <img class="thumbnail" src="../../assets/imgs/venkman.jpg" alt="缩略图">
+         -->
+      <ion-list margin-top>
+        <p class="title">
+            <flowstatus [status]="item.status"></flowstatus>
+        </p>
+        <div class="detail-item" padding-left  *ngFor="let comment of comments">
+              <div class="time-line">
+                <ion-icon name="md-radio-button-off" class="red"></ion-icon>
+              </div>
+              <ion-item no-lines no-padding>
+                  <ion-avatar item-start>
+                      <img src="../../assets/imgs/venkman.jpg">
+                  </ion-avatar>
+                  <h2>{{comment.comment}}</h2>
+              </ion-item>
+              <!-- <div class="thumbnail-item">
+                  <img class="thumbnail" src="../../assets/imgs/venkman.jpg">
+                  <img class="thumbnail" src="../../assets/imgs/venkman.jpg">
+                  <img class="thumbnail" src="../../assets/imgs/venkman.jpg">
+              </div> -->
+          </div>
+        <ion-buttons margin-top margin-bottom padding-left padding-right>
+          <button ion-button outline small (click)="agree(desc)">同意</button>
+          <button ion-button outline small float-right (click)="reject(desc)">不同意</button>
+        </ion-buttons>
+      </ion-list>
+    </div>
+
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-input left placeholder="汇报进展、提问、讨论" #desc></ion-input>
+  <ion-buttons right>
+    <button ion-button icon-only>
+      <ion-icon name="md-happy"></ion-icon>
+    </button>
+    <button ion-button icon-only>
+      <ion-icon name="ios-add-circle-outline"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-footer>

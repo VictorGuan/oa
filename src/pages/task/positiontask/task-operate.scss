@@ -1,0 +1,14 @@
+page-task-operate {
+    ion-list {
+        ion-item[bb] {
+            border-bottom: 1px solid #eeeeee !important;
+            span {
+                color: #FF4B20;
+            }
+        }
+        ion-item:active {
+            background: #eeeeee;
+        }
+    }
+}
+    

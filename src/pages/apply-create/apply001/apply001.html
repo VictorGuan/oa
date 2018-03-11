@@ -1,0 +1,34 @@
+<!--
+  Generated template for the Apply001Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-toolbar>
+      <ion-title> 申请示例</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only color="royal" (click)="submit()" [disabled]="!isReadyToSave">提交</button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="form">
+    <ion-list>
+      <ion-item no-lines>
+        <ion-label>日期</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD" formControlName="deliveryDate" placeholder="选择日期"></ion-datetime>
+      </ion-item>
+      <ion-item no-lines>
+        <ion-label>部门名称</ion-label>
+        <ion-input type="text" formControlName="departmentName"></ion-input>
+      </ion-item>
+      <ion-item no-lines>
+        <ion-label>年龄</ion-label>
+        <ion-input type="number" formControlName="amount"></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

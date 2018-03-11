@@ -1,0 +1,91 @@
+page-approval-apply ion-content ion-item.first-item {
+    border-bottom: 1px solid #dddddd !important;
+}
+page-approval-apply strong {
+    color: #000000;
+}
+page-approval-apply dl {
+    color: #999999;
+}
+page-approval-apply dt {
+    min-width: 70px;
+    display: inline-block;  
+}
+page-approval-apply dd {
+    margin: 0px;
+    display: inline-block;
+}
+page-approval-apply  em {
+    color:red;
+}
+page-approval-apply strong {
+    font-weight: normal;
+}
+page-approval-apply img.thumbnail {
+    width: 50px;
+}
+page-approval-apply ion-list p.title {
+    padding: 10px;
+    font-size:1.6rem;
+    color: #999999;
+}
+page-approval-apply ion-list p ion-note {
+    border-radius: 20px;
+    padding: 3px 5px;
+    background: #F7A339;
+    color: #ffffff !important;
+    font-size: 1.4rem;
+}
+page-approval-apply ion-list .detail-item {
+    position: relative;
+}
+page-approval-apply ion-list .detail-item h2 {
+    margin-top: 0px !important;
+}
+page-approval-apply ion-list .thumbnail-item {
+    padding-left: 50px;
+}
+page-approval-apply ion-list .time-line {
+    position: absolute;
+    left: 5px;
+    width: 1px ;
+    background: #dddddd;
+    top: 0;
+    bottom: 0px;
+}
+page-approval-apply ion-list .time-line ion-icon {
+    margin-left: -6px;
+    background: #fff;
+    margin-top: 20px;
+}
+page-approval-apply ion-list .time-line ion-icon.red {
+    color: red;
+}
+page-approval-apply ion-list .time-line ion-icon.green {
+    color: green;
+}
+page-approval-apply ion-footer {
+    position: fixed;
+    bottom: 52px;
+    background: #eeeeee;
+}
+page-approval-apply ion-footer ion-input {
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background: #ffffff;
+    float: left;
+    line-height: 0.6em;
+    margin-top: 2px;
+    margin-left: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: calc(100% - 90px);
+}
+page-approval-apply ion-footer button {
+    background: #eeeeee !important;
+    margin: 0 !important;
+    color: #999999 !important;
+}
+page-approval-apply ion-footer button ion-icon {
+    padding: 0 0.2em !important;
+}

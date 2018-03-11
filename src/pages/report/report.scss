@@ -1,0 +1,90 @@
+
+page-report {
+    ion-menu {
+        .datetime-ios , .datetime-md{
+            padding: 3px 5px 0px 5px;
+            border: 1px solid #dddddd;
+        }
+        h2 {
+            font-size: 1.6rem;
+            background: #eeeeee;
+            padding: 10px 16px;
+            margin: 5px 0px;
+        }
+        ion-item ion-icon[item-end] {
+            color: #999999;
+            font-weight: normal;
+            font-size: 2rem;
+            line-height: 2.2rem;
+            min-height: 2.2rem;
+            margin: 0px !important;
+        }
+        ion-item[bb] {
+            border-bottom: 1px solid #eeeeee !important;
+        }
+        .button-outline-ios.selected,.button-outline-md.selected {
+            background: #488aff;
+            color: #ffffff;
+        }
+    }
+    ion-header {
+        ion-segment {
+            width: 60%;
+            margin: 0 auto;
+        }
+        ion-icon.ion-ios-funnel {
+            font-size: 1.4em !important;
+        }
+        .toolbar-ios .segment-button {
+            height: 2.2rem;
+            line-height: 2rem;
+        }
+    }
+    ion-content {
+        ion-list {
+            ion-item {
+                border-bottom:1px solid #eeeeee !important;
+                .top {
+                    span , h2 {
+                        display: inline-block;
+                    }
+                    span:first-child {
+                        border-radius: 10px;
+                        font-size: 1.2rem;
+                        text-align: center;
+                        color: #ffffff;
+                        padding: 3px 5px;
+                    }
+                    span.pass {
+                        background: #2ACD08;
+                    }
+                    span.overdue {
+                        background: #CD2E08;
+                    }
+                    span.just-submit {
+                        background: #EFAC3E;
+                    }
+                    span:last-child {
+                        color: #999999;
+                        font-size: 1.4rem;
+                    }
+                }
+                .bottom {
+                    margin-top:5px;
+                    p , span {
+                        display: inline-block;
+                    }
+                    span[float-right]{
+                        border:1px solid #3E7CEF;
+                        font-size: 1.2rem;
+                        padding: 3px 7px;
+                        border-radius: 4px;
+                        color: #3E7CEF;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+   
+}

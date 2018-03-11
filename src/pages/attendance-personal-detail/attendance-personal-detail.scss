@@ -1,0 +1,125 @@
+page-attendance-personal-detail {
+    ion-menu {
+        ion-content {
+            .item-block {
+                .datetime-text {
+                    font-size: 1.4rem;
+                }
+                ion-icon {
+                    color: #999999;
+                    font-size: 1.6rem;
+                    line-height: 2.8rem;
+                    margin: 0px !important;
+                }
+            }
+            p {
+                line-height: 30px;
+                background: #eeeeee;
+                padding-left: 16px;
+            }
+            ion-buttons {
+                padding: 10px;
+                button.on {
+                    background: #488aff;
+                    color: #ffffff;
+                }
+            }
+        }
+        
+    }
+    ion-header {
+        ion-buttons[right] {
+            ion-icon {
+                font-size: 2.4rem !important;
+            }
+        }
+    }
+    ion-content {
+        .item-block:first-child {
+            min-height: 2.4rem;
+            p {
+                margin: 0px;
+                color: #999999;
+                span {
+                    display: inline-block;
+                    padding: 2px 10px;
+                    position: relative;
+                    color: #999999;
+                }
+                span::after {
+                    content: "";
+                    width: 6px ;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: #999999;
+                    position: absolute;right: 0px;
+                    top: 10px;
+                    display: block;
+                }
+                span.unchecked::after {
+                    background: red;
+                }
+                span.checked::after {
+                    background: #00F205;
+                }
+            }
+        }
+        ion-slides {
+            height: auto;
+            ion-slide {
+                ion-row {
+                    font-size: 1.4rem;
+                }
+                ion-row[week-bar] {
+                    color: #999999;
+                }
+                ion-row[date-item] {
+                    span {
+                        width: 40px;
+                        height: 40px;
+                        line-height: 40px;
+                        color: #000000;
+                        border: 1px solid transparent;
+                        border-radius: 50%;
+                        display: block;
+                    }
+                    span::after {
+                        position: absolute;
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                        top: 70%;
+                        left: calc(50% - 5px);
+                        content: ''
+                    }
+                    span.unchecked::after {
+                        background: red;
+                    }
+                    span.checked::after {
+                        background: #00F205;
+                    }
+                    span.on {
+                        border-color: #77DFF1;
+                        background: #C9F5FD;
+                    }
+                }
+            }
+        }
+        p[separator] {
+            line-height: 30px;
+            background: #eeeeee;
+            padding-left: 16px;
+        }
+        ion-list {
+            ion-item {
+                border-bottom: 1px solid #eeeeee !important;
+                ion-note {
+                    font-size: 12px;
+                    align-self: flex-start;
+                    margin-top: 14px;
+                  }
+            }
+        }
+    }
+    
+}

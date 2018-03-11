@@ -1,0 +1,33 @@
+<!--
+  Generated template for the PositionStaffAddPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal" (click)="handleGoback($event)">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>添加岗位成员</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar (ionInput)="search($event)" placeholder ="按首字母查找"></ion-searchbar>
+  <ion-list>
+    <ion-item-sliding *ngFor = "let item of mockUpEmp">
+        <ion-item (click)="addSingleEmp($event,item)">
+          <ion-label>
+            <ion-avatar item-start>
+              <img src="../../assets/imgs/venkman.jpg">
+            </ion-avatar>
+            <p>{{item.name}}</p>
+          </ion-label>
+        </ion-item>
+          <ion-checkbox color="energized"></ion-checkbox>
+        
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,71 @@
+<ion-menu id="applysettingMenu" enabled="false"  [content]="content" side="right">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>类别筛选</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+  <ion-item>
+      <h2>一级分类</h2>
+      <ion-row>
+        <ion-col col-6 *ngFor="let tag of allLevel1" text-center>
+          <button ion-button small outline [ngClass]="tag.isSelected ? 'selected':''" (click)="tag.isSelected = !tag.isSelected">{{tag.name}}</button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <h2>二级分类</h2>
+      <ion-row>
+        <ion-col col-6 *ngFor="let tag of allLevel2" text-center>
+          <button ion-button small outline [ngClass]="tag.isSelected ? 'selected':''" (click)="tag.isSelected = !tag.isSelected">{{tag.name}}</button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-footer>
+      <ion-row>
+        <ion-col>
+          <button ion-button full color="light" (click)="handleReset()">重置</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button full (click)="handleOk()">确定</button>
+        </ion-col>
+      </ion-row>
+    </ion-footer>
+  </ion-content>
+</ion-menu>
+
+<ion-content #content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons start>
+        <button ion-button icon-only color="royal" (click)="handleGoBack()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>流程设置</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only color="royal" (click)="handleShowFilterMenu()">
+          <ion-icon name="ios-funnel"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+
+  </ion-header>
+
+  <ion-content class="container" style="background:#eeeeee;">
+    <ion-item no-lines margin-bottom *ngFor="let item of data">
+      <h2>
+        {{item.name +"("+item.count+")"}}
+        <ion-icon #ionArrow float-right name="ios-arrow-up" (click)="handleCollapse(ionArrow , ionRow)"></ion-icon>
+      </h2>
+      <ion-row #ionRow>
+        <ion-col col-4 text-center *ngFor="let obj of item.concrete" [navPush]="'ApplyPaySettingPage'" [navParams]="{id:obj.id,name:obj.name}">
+          <ion-thumbnail>
+            <img [src]="obj.icon">
+          </ion-thumbnail>
+          <p>{{obj.name}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-content>
+</ion-content>

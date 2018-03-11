@@ -1,0 +1,55 @@
+<!--
+  Generated template for the PunishmentDeliverPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons left>
+      <button ion-button icon-only color="royal" (click)="handleGoback()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+      </ion-buttons>
+      <ion-title>{{titleName}}门店奖罚分配</ion-title>
+      <ion-buttons right  >
+      <button ion-button icon-only small color="royal" (click)="handleConfirm()">
+          提交
+      </button>
+      </ion-buttons>
+  </ion-toolbar>
+  </ion-header>
+  <ion-content>
+      <ion-item no-lines>
+          <ion-label>原因</ion-label>
+          <ion-note item-end>{{commnent}}</ion-note>
+      </ion-item>
+      <ion-item no-lines>
+          <ion-label>金额</ion-label>
+          <ion-note item-end><em>{{amountCount}}</em></ion-note>
+      </ion-item>
+      <ion-item no-lines>
+          <ion-label>说明</ion-label>
+          <ion-textarea>{{description}}</ion-textarea>
+      </ion-item>
+  
+      <!-- 门店奖罚分配 -->
+      <div *ngIf="isShop">
+          <ion-item no-lines *ngFor ="let item of depts">
+              <ion-label>{{item.name}}</ion-label>
+              <ion-input type="number" text-right placeholder="输入金额" [(ngModel)] ="amountShop"></ion-input>
+          </ion-item>
+      </div>
+  
+      <!-- 部门奖罚分配 -->
+      <div class="dept" *ngIf="isDept">
+          <ion-list>
+              <ion-list-header no-lines>部门下的岗位{{deptName}}</ion-list-header>
+              <ion-item no-lines *ngFor ="let item of depts">
+                  <ion-label>{{item.name}}</ion-label>
+                  <ion-input type="number" text-right placeholder="输入金额" [(ngModel)] ="amountPostion"></ion-input>
+              </ion-item>
+          </ion-list>
+      </div>
+  </ion-content>
+  

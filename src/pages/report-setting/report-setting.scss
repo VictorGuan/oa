@@ -1,0 +1,36 @@
+
+page-report-setting {
+    ion-item {
+        border: 1px solid #eeeeee !important;
+        ion-icon[item-end] {
+            color: #999999;
+            font-weight: normal;
+            font-size: 2rem;
+            line-height: 2.2rem;
+            min-height: 2.2rem;
+            margin: 0px !important;
+        }
+    }
+    ion-grid {
+        ion-col {
+            padding: 10px 0px !important;
+            img {
+                width: 45px;
+                height: 45px;
+                display: block;
+                margin: 0 auto ;
+            }
+            p {
+                margin-top: 10px;
+            }
+            ion-icon {
+                position: absolute;
+                right: 20%;
+                top: 0px;
+                color: #488aff;
+                font-size: 3rem;
+            }
+        }
+    }
+
+}

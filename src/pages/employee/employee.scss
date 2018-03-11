@@ -1,0 +1,23 @@
+page-employee ion-input , 
+page-employee ion-textarea , 
+page-employee ion-select , 
+page-employee ion-datetime {
+    border: 1px solid #ddd;
+}
+page-employee ion-input input { 
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+page-employee ion-datetime ,
+page-employee ion-select { 
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    flex: 1;
+}
+page-employee ion-label {
+    min-width: 80px;
+    flex:none;
+}
+page-employee ion-list button {
+    margin-top: 13px;
+}

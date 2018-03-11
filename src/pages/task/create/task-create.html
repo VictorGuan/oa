@@ -1,0 +1,82 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons left>
+            <button ion-button icon-only color="royal" (click)="handleGoback()">
+                <ion-icon name="ios-arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>门店列表</ion-title>
+        <ion-buttons right>
+            <button ion-button icon-only color="royal" (click)="submit()" [disabled]="!isReadyToSave">
+                提交
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+<ion-content>
+    <form *ngIf="form" [formGroup]="form">
+        <ion-input placeholder="任务名称" margin-top margin-bottom formControlName="name"></ion-input>
+        <ion-list>
+            <ion-item no-lines bb>
+                <ion-label>负责人(唯一)</ion-label>
+                <ion-input readonly text-right formControlName="involve1"></ion-input>
+                <button ion-button button small outline icon-only>
+                        <ion-icon name="md-add"></ion-icon>
+                    </button>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label>参与人</ion-label>
+                <ion-input readonly value="" formControlName="involve2" text-right></ion-input>
+                <button ion-button button small outline icon-only item-end>
+                    <ion-icon name="md-add"></ion-icon>
+                </button>
+            </ion-item>
+        </ion-list>
+        <ion-item no-lines margin-top bb>
+            <ion-label>截止日期</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" pickerFormat="YYYY-MM-DD" formControlName="date" aria-placeholder="设置截止日期"></ion-datetime>
+            <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </ion-item>
+        <ion-item no-lines>
+            <ion-label>提醒时间</ion-label>
+            <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" formControlName="time" aria-placeholder="设置提醒时间"></ion-datetime>
+            <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </ion-item>
+        <ion-item no-lines margin-top>
+            <ion-label>紧急程度</ion-label>
+            <ion-select formControlName="urgent_level">
+                <ion-option value="0">普通</ion-option>
+                <ion-option value="1">紧急</ion-option>
+                <ion-option value="2">非常紧急</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-textarea placeholder="添加任务描述" formControlName="desc" margin-top margin-bottom></ion-textarea>
+        <ion-grid>
+            <ion-row *ngFor="let item of images">
+                <ion-col col-3 *ngFor="let image of item.values">
+                    <ion-thumbnail>
+                        <img src="{{image}}">
+                    </ion-thumbnail>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-3>
+                    <ion-thumbnail (click)="selectImages()">
+                        <img src="../../assets/imgs/add.jpg">
+                    </ion-thumbnail>
+                </ion-col>
+                <ion-col col-3>
+                    <ion-thumbnail>
+                        <img src="../../assets/imgs/venkman.jpg">
+                    </ion-thumbnail>
+                    <ion-icon name="md-close-circle"></ion-icon>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-item no-lines margin-top margin-bottom>
+            <ion-label>处罚金额</ion-label>
+            <ion-input placeholder="￥" text-right money formControlName="amount"></ion-input>
+        </ion-item>
+    </form>
+</ion-content>

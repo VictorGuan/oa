@@ -1,0 +1,109 @@
+<!--
+  Generated template for the PunishmentRewardRecordPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-menu [content]="content" side="right">
+    <ion-content padding>
+        <ion-item no-lines>
+            <ion-datetime [(ngModel)]="selectedDate" displayFormat="YYYY MMM DD" pickerFormat="YYYY MMM DD" placeholder="选择时间"></ion-datetime>
+        </ion-item>
+        <ion-buttons>
+            <h2>类型筛选</h2>
+            <button ion-button small outline
+            [ngClass]="type == 1 ?'selected':''"
+            (click)="type = 1">奖励</button>
+            <button ion-button small outline
+            [ngClass]="type == 0 ?'selected':''"
+            (click)="type = 0">处罚</button>
+            <button ion-button small outline
+            [ngClass]="type == -1 ?'selected':''"
+            (click)="type = -1">全部</button>
+        </ion-buttons>
+        <ion-buttons>
+            <h2>分配筛选</h2>
+            <button ion-button small outline
+            [ngClass]="status == 0 ?'selected':''"
+            (click)="status = 0">未分配</button>
+            <button ion-button small outline
+            [ngClass]="status == 1 ?'selected':''"
+            (click)="status = 1">已分配</button>
+            <button ion-button small outline
+            [ngClass]="status == -1 ?'selected':''"
+            (click)="status = -1">全部</button>
+        </ion-buttons>
+        <ion-footer>
+            <ion-row>
+                <ion-col>
+                <button ion-button full color="light" (click)="reset()" >重置</button>
+                </ion-col>
+                <ion-col>
+                <button ion-button full (click)="search()">确定</button>
+                </ion-col>
+            </ion-row>
+        </ion-footer>
+    </ion-content>
+</ion-menu>
+<ion-content #content>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons left>
+            <button ion-button icon-only color="royal" (click)="handleGoback()">
+                <ion-icon name="ios-arrow-back"></ion-icon>
+            </button>
+            </ion-buttons>
+            <ion-segment [(ngModel)]="tabIndex" (click) ="changeIndex($event)">
+                <ion-segment-button value="1">
+                    我的
+                </ion-segment-button>
+                <ion-segment-button value="2">
+                    我分配
+                </ion-segment-button>
+                <ion-segment-button value="3">
+                    抄送我
+                </ion-segment-button>
+            </ion-segment>
+            <ion-buttons right>
+            <button ion-button icon-only color="royal" (click)="handleShowFilterMenu()">
+                <ion-icon name="ios-funnel"></ion-icon>
+            </button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <div class="list-top-box">
+            <h2 text-center>2018年01月</h2>
+            <p text-center><span>处罚{{punishmentCount}}次，</span><span>奖励{{rewardCount}}次，</span><span>共{{amountCount}}元</span></p>
+        </div>
+        <div [ngSwitch]="tabIndex">
+            <ion-grid *ngSwitchCase="'1'">
+                <ion-row odd *ngFor="let item of empPunishments">
+                    <ion-col align-self-center col-2>{{item.comment}}</ion-col>
+                    <ion-col align-self-center>{{item.created_at}}</ion-col>
+                    <ion-col align-self-center col-2>{{item.amount}}</ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-grid *ngSwitchCase="'2'">
+                <ion-row odd *ngFor="let item of empPunishments">
+                    <ion-col align-self-center col-3>{{item.manager}}门店</ion-col>
+                    <ion-col align-self-center col-2>{{item.comment}}</ion-col>
+                    <ion-col align-self-center>{{item.created_at}}</ion-col>
+                    <ion-col align-self-center col-2>{{item.amount}}</ion-col>
+                    <ion-col align-self-center col-2>{{item.status}}</ion-col>
+                </ion-row>
+            </ion-grid>
+                <ion-grid *ngSwitchCase="'3'">
+                    <ion-row odd>
+                        <ion-col align-self-center col-2>处罚</ion-col>
+                        <ion-col align-self-center>行业/门店/部门/员工</ion-col>
+                        <ion-col align-self-center>2018-01-07 13:34</ion-col>
+                        <ion-col align-self-center col-2>100元</ion-col>
+                    </ion-row>
+                </ion-grid>
+        </div>
+        
+    </ion-content>
+</ion-content>
+
+

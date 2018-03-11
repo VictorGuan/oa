@@ -1,0 +1,156 @@
+
+<ion-header>
+
+    <ion-toolbar>
+        <ion-buttons start>
+          <button ion-button icon-only color="royal" (click)="handleGoBack($event)">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-title>门店详情</ion-title>
+        <ion-buttons end>
+          <button ion-button icon-only color="royal" (click)="handleCheckDept($event)">
+            查看部门
+          </button>
+        </ion-buttons>
+      </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+    <div padding>
+        <ion-segment [(ngModel)]="type">
+          <ion-segment-button value="detail">
+            详情
+          </ion-segment-button>
+          <ion-segment-button value="timeline">
+            时间线
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+      
+      <div [ngSwitch]="type" class="switch-page">
+        <ion-grid *ngSwitchCase="'detail'">
+          <ion-row>
+              <ion-col>
+                <ion-note class="tag business"></ion-note>
+              </ion-col>
+              <ion-col>
+                <ion-note>{{countDept}}&nbsp;个部门</ion-note><ion-note>{{countDeptStaff}}&nbsp;名员工</ion-note>
+              </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>名称</ion-col>
+            <ion-col>{{shopDetail.name}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>店长</ion-col>
+            <ion-col>{{shopDetail.manager}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>地址</ion-col>
+            <ion-col>{{shopDetail.address}}</ion-col>
+          </ion-row>
+          <ion-row class="mt-10">
+            <ion-col col-3>开业时间</ion-col>
+            <ion-col>{{shopDetail.created_at}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>签约时间</ion-col>
+            <ion-col>{{shopDetail.updated_at}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>关闭时间</ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+          <ion-row class="mt-10">
+            <ion-col col-3>筹备天数</ion-col>
+            <ion-col>100天</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>运营天数</ion-col>
+            <ion-col>100天</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>停业天数</ion-col>
+            <ion-col>100天</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3>停业次数</ion-col>
+            <ion-col>10次</ion-col>
+          </ion-row>
+          <ion-row class="mt-10" *ngFor ="let d of depts">
+            <ion-col><strong>{{d?.name}}</strong></ion-col>
+            <ion-col col-2>{{d?.staffCount}}</ion-col>
+            <ion-col col-3>负责人:{{d?.manager}}</ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-list *ngSwitchCase="'timeline'">
+            <div class="time-node">
+                <div class="time-line">
+                    <ion-icon name="md-clock"></ion-icon>
+                </div>
+                <div class="time-content">
+                    <p><ion-note class="tag sign">签约</ion-note>&nbsp;2017-09-09</p>
+                    <div padding>
+                        <span>筹备100天</span>
+                        <span>小王</span>
+                        <span>小李</span>
+                    </div>
+                </div>
+            </div>
+            <div class="time-node">
+                <div class="time-line">
+                    <ion-icon name="md-clock"></ion-icon>
+                </div>
+                <div class="time-content">
+                    <p><ion-note class="tag business">开业</ion-note>  2017-09-09</p>
+                    <div padding>
+                        <span>筹备100天</span>
+                        <span>小王</span>
+                        <span>小李</span>
+                    </div>
+                </div>
+            </div>
+            <div class="time-node">
+                <div class="time-line">
+                    <ion-icon name="md-clock"></ion-icon>
+                </div>
+                <div class="time-content">
+                    <p><ion-note class="tag stop">停业</ion-note>  2017-09-09</p>
+                    <div padding>
+                        <span>筹备100天</span>
+                        <span>小王</span>
+                        <span>小李</span>
+                    </div>
+                </div>
+            </div>
+            <div class="time-node">
+                <div class="time-line">
+                    <ion-icon name="md-clock"></ion-icon>
+                </div>
+                <div class="time-content">
+                    <p><ion-note class="tag recover">恢复营业</ion-note>  2017-09-09</p>
+                    <div padding>
+                        <span>筹备100天</span>
+                        <span>小王</span>
+                        <span>小李</span>
+                    </div>
+                </div>
+            </div>
+            <div class="time-node">
+                <div class="time-line">
+                    <ion-icon name="md-clock"></ion-icon>
+                </div>
+                <div class="time-content">
+                    <p><ion-note class="tag close">关闭门店</ion-note>  2017-09-09</p>
+                    <div padding>
+                        <span>筹备100天</span>
+                        <span>小王</span>
+                        <span>小李</span>
+                    </div>
+                </div>
+            </div>
+        </ion-list>
+      </div>
+</ion-content>

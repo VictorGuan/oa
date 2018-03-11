@@ -1,0 +1,40 @@
+
+<ion-header>
+
+    <ion-toolbar>
+        <ion-buttons start>
+          <button ion-button icon-only color="royal" (click) = "handleGoBack()">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-title>部门列表</ion-title>
+        <ion-buttons end>
+          <button ion-button icon-only color="royal" (click)="handleAdd()">
+            <ion-icon name="md-add"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item-sliding #itemSliding *ngFor = "let item of depts">
+          <ion-item (click)="handleShowDeptDetail(item)">
+            <ion-avatar item-start>
+              <img src="../../assets/imgs/venkman.jpg">
+            </ion-avatar>
+            <h2>{{item.name}}</h2>
+            <ion-note item-end>15 <ion-icon name="ios-arrow-forward"></ion-icon></ion-note>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="primary" (click)="handleEdit(item , $event)">
+              修改
+            </button>
+            <button ion-button color="secondary" (click)="handleDel(item , $event)">
+              删除
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+</ion-content>

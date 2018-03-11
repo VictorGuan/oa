@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <button ion-button (click)="presentActionSheet($event)" id="business">组织架构</button>
+    <button ion-button (click)="showActionSheet($event)" id="apply">申请模块</button>
+    <button ion-button (click)="showActionSheet($event)" id="other">其他模块</button>
+    <button ion-button (click)="showActionSheet($event)" id="task">任务模块</button>
+    <button ion-button (click) ="presentActionSheet($event)" id="punishment">奖罚模块</button>
+    <button ion-button (click) ="presentActionSheet($event)" id="report">报表模块</button>
+    <button ion-button (click) ="presentActionSheet($event)" id="schedule">排班模块</button>
+    <button ion-button (click) ="presentActionSheet($event)" id="attendance">考勤模块</button>
+  </div>
+</ion-content>

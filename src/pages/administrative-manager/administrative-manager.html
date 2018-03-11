@@ -1,0 +1,50 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal" (click)="handleGoBack()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>行政等级列表</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="handleAdd()">
+        <ion-icon name="md-add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click) = "orderBy($event)">排序</button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item-sliding #slidingItem *ngFor = "let item of admins">
+          <ion-item>
+              <ion-row>
+                  <ion-col><strong>{{item.name}}</strong></ion-col>
+                  <ion-col col-2 text-center>{{item.count}}人</ion-col>
+                  <ion-col col-2 text-center>{{item.level}}</ion-col>
+                  <ion-col col-2 text-right>
+                    <ion-icon [name]="item.isExpand ?'ios-arrow-up':'ios-arrow-down'" (click)="item.isExpand =! item.isExpand"></ion-icon>
+                  </ion-col>
+              </ion-row>
+              <ion-grid *ngIf="item.isExpand && item.children">
+                  <ion-row *ngFor="let child of item.children">
+                      <ion-col col-2 text-right>{{child.name}}</ion-col>
+                      <ion-col text-right>{{child.job}}</ion-col>
+                    </ion-row>
+              </ion-grid>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button color="secondary" icon-start (click)="handleEdit(item)">
+              修改
+            </button>
+            <button ion-button color="primary" icon-start (click)="handleDel(item)">
+              删除
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>

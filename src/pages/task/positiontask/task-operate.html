@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ positionName }}岗位自动任务</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="handleAdd()">
+        添加
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list no-lines>
+    <ion-item bb (click)="handleEdit(task)" *ngFor="let task of tasks">
+      <h2>{{task.name}}</h2>
+      <p>{{ getPeriodType(task) }}</p>
+      <span item-end>罚款 {{task.amount}}</span>
+    </ion-item>
+  </ion-list>
+</ion-content>

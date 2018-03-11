@@ -1,0 +1,75 @@
+
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal" (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>员工入职</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="handleSave()" [disabled]="!isReadyToSave" >
+        保存
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+    <form *ngIf="form" [formGroup]="form" >
+  <ion-list>
+    <ion-item no-lines>
+      <ion-label>分配岗位</ion-label>
+      <ion-input type="text" readonly placeholder="选择岗位" (click)="handleSelectPost()" value="{{ positionName }}"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+          <ion-item no-lines>
+              <ion-label>Email</ion-label>
+              <ion-input #email type="text" formControlName="email"></ion-input> <ion-input  type="text" readonly="true"  value="{{suffix}}"></ion-input> 
+          </ion-item>
+      </ion-col>
+      <ion-col col-2>
+         <button ion-button small outline (click)="checkEmail(email.value)" >检测</button>
+      </ion-col>
+    </ion-row>
+    <ion-item no-lines>
+      <ion-label>姓名</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>性别</ion-label>
+      <ion-select interface="popover" formControlName="sex">
+        <ion-option value="男">男</ion-option>
+        <ion-option value="女">女</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item no-lines>
+        <ion-label>生日</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD" formControlName="dob" placeholder="选择日期"></ion-datetime>
+      </ion-item>
+    <ion-item no-lines>
+      <ion-label>年龄</ion-label>
+      <ion-input type="number" formControlName="age"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>手机号</ion-label>
+      <ion-input type="text"  formControlName="phone"></ion-input>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>入职日期</ion-label>
+      <ion-datetime displayFormat="YYYY-MM-DD" formControlName="entryDate" placeholder="选择日期"></ion-datetime>
+    </ion-item>
+    <ion-item no-lines>
+      <ion-label>工作简历</ion-label>
+      <ion-textarea  formControlName="experience"></ion-textarea>
+    </ion-item>
+    <ion-item no-lines margin-top>
+      <ion-label>其他说明</ion-label>
+      <ion-textarea  formControlName="comment"></ion-textarea>
+    </ion-item>
+  </ion-list>
+    </form>
+</ion-content>

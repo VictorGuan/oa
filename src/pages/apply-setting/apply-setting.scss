@@ -1,0 +1,42 @@
+page-apply-setting .bar-button-ios[icon-only] ion-icon.ion-ios-funnel {
+    font-size: 1.5em;
+}
+
+page-apply-setting  ion-thumbnail{
+    margin-left:calc(50% - 28px);
+}
+page-apply-setting ion-thumbnail + p {
+    margin-top: 10px !important;
+}
+page-apply-setting ion-item h2 {
+    line-height: 30px;
+}
+page-apply-setting .container ion-item ion-col:active {
+    background: #eee;
+}
+
+page-apply-setting ion-menu ion-note.tag {
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #999999;
+    padding: 5px 10px;
+}
+page-apply-setting ion-menu .item-ios {
+    padding-left: 0px;
+    border-bottom: 1px solid #eeeeee;
+}
+page-apply-setting ion-menu .item-ios h2 {
+    padding-left: 16px;
+}
+page-apply-setting ion-menu .item-ios.item-block .item-inner {
+    border-bottom: none;
+}
+page-apply-setting ion-menu button.selected {
+    background: #488aff;
+    color: #fff;
+}
+
+page-apply-setting ion-menu ion-col {
+    margin-top: 10px !important;
+    margin-bottom: 5px !important;
+}

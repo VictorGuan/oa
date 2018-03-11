@@ -1,0 +1,89 @@
+<!--
+  Generated template for the PunishmentRewardDistributionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-menu [content]="content" side="right">
+    <ion-content padding>
+      <h2>对象筛选</h2>
+      <ion-item no-lines margin-top>
+          <ion-label>行业</ion-label>
+          <ion-select [(ngModel)]="selectedItem.business" placeholder="行业列表" (ionChange) ="change('business')"> 
+              <ion-option  *ngFor ="let item of businesses" value="{{item.id}}">{{item.name}}</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item no-lines>
+          <ion-label>门店</ion-label>
+          <ion-select [(ngModel)]="selectedItem.shop" placeholder="门店列表" (ionChange) ="change('shop')">
+              <ion-option *ngFor ="let item of shops" value="{{item.id}}">{{item.name}}</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item no-lines>
+          <ion-label>部门</ion-label>
+          <ion-select [(ngModel)]="selectedItem.dept" placeholder="部门列表" (ionChange) ="change('dept')">
+              <ion-option *ngFor ="let item of depts" value="{{item.name}}">{{item.name}}</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item no-lines>
+          <ion-label>岗位</ion-label>
+          <ion-select [(ngModel)]="selectedItem.position" placeholder="岗位列表" (ionChange) ="change('position')">
+              <ion-option *ngFor ="let item of positions" value="{{item.name}}">{{item.name}}</ion-option>
+          </ion-select>
+      </ion-item>
+      <h2 margin-top>类型筛选</h2>
+      <ion-row text-center  margin-top class="filter-buttons">
+          <ion-col>
+              <button ion-button small outline (click)="changeType(0)" [ngClass]="isReward?'selected':''">奖励</button>
+          </ion-col>
+          <ion-col>
+              <button ion-button small outline (click)="changeType(1)" [ngClass]="isPunishment?'selected':''">处罚</button>
+          </ion-col>
+      </ion-row>
+      <ion-footer>
+          <ion-row>
+              <ion-col>
+              <button ion-button full color="light" (click)="reset()">重置</button>
+              </ion-col>
+              <ion-col>
+              <button ion-button full (click)="search($event)">确定</button>
+              </ion-col>
+          </ion-row>
+      </ion-footer>
+    </ion-content>
+  </ion-menu>
+
+<ion-content #content>
+<ion-header>
+<ion-toolbar>
+    <ion-buttons start>
+    <button ion-button icon-only color="royal" (click)="handleGoback()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title>{{titleName}}&nbsp;罚单列表</ion-title>
+    <ion-buttons end>
+    <button ion-button icon-only color="royal" (click)="handleShowFilterMenu()">
+        <ion-icon name="ios-funnel"></ion-icon>
+    </button>
+    <button ion-button icon-only small color="royal" (click)="handleConfirm()">
+        提交
+    </button>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <div>
+        <p><strong>现有罚单</strong></p>
+        <div class="punishment-list">
+                <button ion-button small outline *ngFor = "let item of avalible">{{item.name}}</button>
+        </div>
+    </div>
+    <div  class="punishment" margin-top>
+        <p><strong>可用罚单</strong></p>
+        <div class="punishment-list">
+            <button ion-button small outline *ngFor = "let item of unAvalible">{{item.name}}</button>
+        </div>
+    </div>
+</ion-content>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-title>{{objName}}-{{ applyName}}-流程 </ion-title>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>审批人</ion-col>
+      <ion-col>职位</ion-col>
+      <ion-col>次序</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of operateItems">
+      <ion-col>
+        <strong>item.levelName</strong>
+      </ion-col>
+      <ion-col>
+        <strong>item.name</strong>
+      </ion-col>
+      <ion-col>
+        <strong>item.no</strong>
+      </ion-col>
+    </ion-row> 
+    <ion-row margin-top>
+      <ion-col>抄送人</ion-col>
+      <ion-col>职位</ion-col>
+      <ion-col>次序</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of copyItems">
+      <ion-col>
+        <strong>item.levelName</strong>
+      </ion-col>
+      <ion-col>
+        <strong>item.name</strong>
+      </ion-col>
+      <ion-col>
+        <strong>item.no</strong>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-footer padding>
+    <ion-row>
+      <ion-col>
+        <button ion-button full [color]="!special?'secondary':''">正常</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button full [color]="special?'secondary':''">特殊</button>
+      </ion-col>
+    </ion-row>
+  </ion-footer>
+</ion-content>
